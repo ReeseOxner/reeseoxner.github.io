@@ -197,20 +197,25 @@ box-shadow: 0 0 40px 40px $red inset;
 }
 
 .firstcharacter {
-color: Purple;
-float: left;
-font-family: Georgia;
-font-size: 75px;
-line-height: 60px;
-padding-top: 4px;
-padding-right: 8px;
-padding-left: 3px;
+  background-image: url('multimedia/gradient-colors.gif') !important;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  cursor: url(https://cur.cursors-4u.net/games/gam-12/gam1191.cur), auto !important;
+  letter-spacing: 4px;
+  float: left;
+    margin: 0 0.1em 0 0;
+    font-size: 3.5em;
+    line-height: .7em;
+
+    display: block;
+    padding: .1em;
 }
 
 
 .browser-window {
   position: relative;
-  width: 400px;
+  width: 600px;
   height: 400px;
   background-color: white;
   border: 1px solid gray;
@@ -234,7 +239,7 @@ padding-left: 3px;
   border-radius: 10%;
 }
 
-input[type="text"] {
+.browser-window input[type="text"] {
   width: 100%;
   margin-left: 5px;
   border: none;
