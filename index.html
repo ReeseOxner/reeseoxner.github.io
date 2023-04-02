@@ -1,7 +1,59 @@
+<div id="form-container">
+  <form id="json-entry-form">
+    <p>um... this is awkward. this box is just for reese to generate json for future entries. push esc to exit.</p>
+  <label for="name">Name: </label>
+  <input type="text" id="name" name="name"><br><br>
+
+  <label for="color">Color: </label>
+  <input type="color" id="color" name="color" value="#5cdb95"><br><br>
+
+  <label for="watching">What I'm watching: </label>
+  <input type="text" id="watching" name="watching"><br><br>
+
+  <label for="watching-url">Watching URL: </label>
+  <input type="text" id="watching-url" name="watching-url"><br><br>
+
+  <label for="listening">What I'm listening to: </label>
+  <input type="text" id="listening" name="listening"><br><br>
+
+  <label for="listening">Listening URL: </label>
+  <input type="text" id="listening-url" name="listening-url"><br><br>
+
+  <label for="reading">What I'm reading: </label>
+  <input type="text" id="reading" name="reading"><br><br>
+
+  <label for="reading">Reading URL: </label>
+  <input type="text" id="reading-url" name="reading-url"><br><br>
+
+  <label for="eating">What I'm eating: </label>
+  <input type="text" id="eating" name="eating"><br><br>
+
+  <label for="eating">Eating URL: </label>
+  <input type="text" id="eating-url" name="eating-url"><br><br>
+
+  <label for="best-meal">The best meal I've had recently: </label>
+  <input type="text" id="best-meal" name="best-meal"><br><br>
+
+  <label for="best-meal">Best meal URL: </label>
+  <input type="text" id="best-meal-url" name="best-meal-url"><br><br>
+
+  <button type="submit" id="generatejson">Generate JSON Entry</button>
+
+  <p style="overflow: auto; width:400px;">
+    <pre id="reese"><textarea id="json-output"></textarea></pre>
+    <button type="button" id="copy-json">Copy JSON</button>
+  </p>
+  </form>
+</div>
+
+
+
+
 <html>
 
 <head>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⭐</text></svg>">
+<link rel="stylesheet" href="style.css">
 
 <title> reese land  </title>
 
@@ -11,187 +63,105 @@
 <meta name="twitter:title" content="reese land" />
 <meta name="twitter:description" content="my personal website" />
 <meta name="twitter:image" content="https://i.imgur.com/IhzCBPb.png" />
-<style>
-/* GLOBAL STYLES - reese test */
-
-* {
-}
-
-body {
-  background: #333;
-  padding: 30px;
-  padding-top: 5em;
-  display: flex;
-  justify-content: center;
-font-family: sans-serif;
-
-}
-
-/* typewriter styles  */
-.typewriter h1 {
-  color: #fff;
-  font-family: monospace;
-  overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: .15em solid #5cdb95; /* The typwriter cursor */
-  white-space: nowrap; /* Keeps the content on a single line */
-  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-  letter-spacing: .15em; /* Adjust as needed */
-  animation:
-    typing 3.5s steps(30, end),
-    blink-caret .5s step-end infinite;
-}
-
-/* The typing effect */
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
-}
-
-/* The typewriter cursor effect */
-@keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: #5cdb95 }
-}
-
-.p1 {
-color: #fff;
-}
-
-
-summary, dl {
-color: #ffffff !important;
-}
-
-a, a:visited {
-color: #5cdb95;
-}
-
-a:hover {
-color: #fff;
-}
-
-mark {
-background-color: #5cdb95;
-}
-
-::selection {
-  background: #5cdb95; /* WebKit/Blink Browsers */
-}
-::-moz-selection {
-  background: #5cdb95; /* Gecko Browsers */
-}
-
-/* Start https://www.cursors-4u.com */ * {cursor: url(https://cur.cursors-4u.net/games/gam-12/gam1191.cur), auto !important;} /* End https://www.cursors-4u.com */
-
-</style>
 
 </head>
-
 <body>
+  <div class="typewriter">
+    <h1>welcome to reese land</h1>
+  </div>
 
-<div class="typewriter">
-  <h1>welcome to reese land</h1></div>
-
-<div style="width:80%;">
-<br><br>
-<br>
-
-<p class="p1">hi, its me, reese oxner</p>
-
-<p class="p1"> <strong>here's what i'm up to</p></strong>
-
-<p class="p1">what i'm watching <strong><a href="https://tv.apple.com/us/episode/pilot/umc.cmc.4nophqr1ztliqnbyeh0i7nnn2?action=playSmartEpisode" target="_blank" style="text-decoration: none;">→</a> mythic quest & abbott elementary</strong></p>
-
-<p class="p1">what i'm listening to  <strong><a href="https://open.spotify.com/track/0UKSse3fcKetDzXnXzE1Pv?si=3ef3c8d060b8490a" target="_blank" style="text-decoration: none;">→</a> gracias a la vida by mercedes sosa</strong></p>
-
-<p class="p1">what i'm reading <a href="https://www.bookpeople.com/book/9781328764522" target="_blank" style="text-decoration: none;">→</a> <strong>how to write an autobiographical novel by alexander chee</strong></p>
-
-<p class="p1">what i'm eating <a href="https://cooking.nytimes.com/recipes/1023675-gochujang-caramel-cookies" target="_blank" style="text-decoration: none;">→</a> <strong>eric kim gochugang cookies</strong></p>
-
-<p class="p1">the best meal i've had recently <a href="https://i.imgur.com/evpCWOM.jpg" target="_blank" style="text-decoration: none;">→</a> <strong>striped bass with tamarind, rum butter, green mango & papaya from canje in austin, tx</strong></p>
-
-<br>
-
-<p class="p1"> <strong>anyway, click to see some of my work</p></strong>
+  <div style="width:80%;">
+    <br><br>
+    <br>
+    <div id="content"></div>
+    <br>
+    <div>
+      <button id="left-arrow" class="navigation-btn">&larr;</button>
+      <select id="version-selector"></select>
+      <button id="right-arrow" class="navigation-btn">&rarr;</button>
+    </div> <br/><br/>
+    <!-- Add the rest of your HTML content here. -->
+    <p class="p1"> <strong>anyway, click to see some of my work</p></strong>
 
 
-  <details>
-                    <summary>
-                        my product management
-                    </summary>
-                    <dl>
-                        im the product manager at <a href="https://www.texastribune.org/">the texas tribune</a>. right now i'm working on projects surrounding our website, newsletters, podcasts and workflows.
+      <details>
+                        <summary>
+                            my product management
+                        </summary>
+                        <dl>
+                            im the product manager at <a href="https://www.texastribune.org/">the texas tribune</a>. right now i'm working on projects surrounding our website, newsletters, podcasts and workflows.
 
-                        <br/><br/>
+                            <br/><br/>
 
-                        im also the editorial assistant for the <a href="https://newsproduct.org/">news product alliance</a>. i'll be writing weekly articles around product management + news.
-                    </dl>
-                </details>
+                            im also the newsletter writer for the <a href="https://newsproduct.org/product-notes-subscribe">news product alliance</a>. i write a biweekly newsletter around product management + journalism. <a href="https://newsproduct.org/product-notes-subscribe">sign up</a>.
+                        </dl>
+                    </details>
 
-<br>
-<details>
-                    <summary>
-                        my writing
-                    </summary>
-                    <dl>
-                        i have reported various news stories for <a href="https://www.texastribune.org/about/staff/reese-oxner/">the texas tribune</a>, <a href="https://www.npr.org/people/932266163/reese-oxner">npr</a>, <a href="https://www.dallasnews.com/author/reese-oxner/">the dallas morning news</a> and in <a href="https://www.theshorthorn.com/users/profile/reese%20oxner">college</a>.
-                    </dl>
-                </details>
+    <br>
+    <details>
+                        <summary>
+                            my writing
+                        </summary>
+                        <dl>
+                            i have reported various news stories for <a href="https://www.texastribune.org/about/staff/reese-oxner/">the texas tribune</a>, <a href="https://www.npr.org/people/932266163/reese-oxner">npr</a>, <a href="https://www.dallasnews.com/author/reese-oxner/">the dallas morning news</a> and in <a href="https://www.theshorthorn.com/users/profile/reese%20oxner">college</a>.
+                            <p>i also wrote this essay for html.review: <a href="siggyshop">siggyshop</a>.
+                        </dl>
+                    </details>
 
-<br>
-<details>
-                    <summary>
-                        my photos
-                    </summary>
-                    <dl>
-                        <img src="https://i.imgur.com/yw1OWJH.png" style="width:400px">
-<p> work in progress, but for now here's a photo i took of a firework. follow me on <a href="https://twitter.com/reeseoxner" target="_blank">insta</a></p>
+    <br>
+    <details>
+                        <summary>
+                            my photos
+                        </summary>
+                        <dl>
+                            <img src="https://i.imgur.com/yw1OWJH.png" style="width:400px">
+    <p> work in progress, but for now here's a photo i took of a firework. follow me on <a href="https://twitter.com/reeseoxner" target="_blank">insta</a></p>
 
-<p> oh i also shot a gallery of a protest: <br> <a href="https://m.theshorthorn.com/gallery/photos-protesters-rally-outside-president-donald-trump-indian-prime-minister-narendra-modi-summit-in-houston/collection_afd6c9ee-dd89-11e9-b7fb-f7ab05ee334c.html#1" target="_blank"><img src="https://i.imgur.com/tqhdmQG.png" style="width: 400px;"> </a></p>
-                    </dl>
-                </details>
+    <p> oh i also shot a gallery of a protest: <br> <a href="https://m.theshorthorn.com/gallery/photos-protesters-rally-outside-president-donald-trump-indian-prime-minister-narendra-modi-summit-in-houston/collection_afd6c9ee-dd89-11e9-b7fb-f7ab05ee334c.html#1" target="_blank"><img src="https://i.imgur.com/tqhdmQG.png" style="width: 400px;"> </a></p>
+                        </dl>
+                    </details>
 
-<br>
-<details>
-                    <summary>
-                        my coding
-                    </summary>
-                    <dl>
-                      i wrote and <a href="siggyshop.html">coded this essay</a>. i made <a href="http://mswworks.com/"> this website for a local business in north texas.</a>
-                    </dl>
-                </details>
-
-
-<br>
-<details>
-                    <summary>
-                        my designs
-                    </summary>
-                    <dl>
-                        work in progress <br>
-
-                        check out this page i made tho: <br> <a href="https://bloximages.newyork1.vip.townnews.com/theshorthorn.com/content/tncms/assets/v3/editorial/0/cb/0cb90d58-49c7-11ea-b1d9-7387ae6e36bb/5e3d9078e1940.pdf.pdf"> <img src="https://i.imgur.com/wh3CE0N.png" style="height:400px;" /></a>
-                    </dl>
-                </details>
-<footer>
+    <br>
+    <details>
+                        <summary>
+                            my coding
+                        </summary>
+                        <dl>
+                          i wrote and <a href="siggyshop.html">coded this essay</a>. i made <a href="http://mswworks.com/"> this website for a local business in north texas.</a>
+                        </dl>
+                    </details>
 
 
-<div> <br><br><br><p style="text-align:  right; color:  darkgrey; font-size: 8px;"> the world is quiet here </p>
-</div>
+    <br>
+    <details>
+                        <summary>
+                            my designs
+                        </summary>
+                        <dl>
+                            work in progress <br>
 
-</footer>
-
-</div>
-<br><br><br>
-<p class="p1"> say hi <br>
-    <a href="https://www.instagram.com/reeseoxner/" target="_blank">instagram</a> | <a href="https://twitter.com/reeseoxner" target="_blank">twitter</a> | <a href="https://www.linkedin.com/in/reeseoxner/" target="_blank">linkedin</a> | <a href="mailto:reeseoxner@gmail.com" target="_blank">email</a>
-    </p>
+                            check out this page i made tho: <br> <a href="https://bloximages.newyork1.vip.townnews.com/theshorthorn.com/content/tncms/assets/v3/editorial/0/cb/0cb90d58-49c7-11ea-b1d9-7387ae6e36bb/5e3d9078e1940.pdf.pdf"> <img src="https://i.imgur.com/wh3CE0N.png" style="height:400px;" /></a>
+                        </dl>
+                    </details>
+    <footer>
 
 
-</div>
+    <div> <br><br><br><p style="text-align:  right; color:  darkgrey; font-size: 8px;"> the world is quiet here </p>
+    </div>
 
+    </footer>
+
+    </div>
+    <br><br><br>
+    <div class="contactme">
+    <p class="p1"> say hi <br>
+        <a href="https://www.instagram.com/reeseoxner/" target="_blank">instagram</a> | <a href="https://twitter.com/reeseoxner" target="_blank">twitter</a> | <a href="https://www.linkedin.com/in/reeseoxner/" target="_blank">linkedin</a> | <a href="mailto:reeseoxner@gmail.com" target="_blank">email</a>
+        </p>
+    </div>
+
+
+    </div>
+
+<script src="script.js"></script>
 </body>
-
-
-<script></script>
 </html>
