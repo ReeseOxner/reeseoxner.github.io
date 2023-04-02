@@ -10,7 +10,7 @@ _(())\_)() /((_)_   )\  )\    )\  ' /((_) (_))/  )\  (_))  /((_)/((_))\  /((_) (
 
 please don't read my code 😳 cuz it's messy
 
-i learned how to make websites for the first time mostly by clicking view source on pages and seeing how other people do it. and i always loved encoutnering ascii art.
+i learned how to make websites for the first time mostly by clicking view source on pages and seeing how other people do it. and i always loved encountering ascii art.
 
 
 
@@ -88,214 +88,8 @@ love you
 <head>
     <meta charset="UTF-8">
     <title>💫siggy shop 💫</title>
-    <style>
-    @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Lato:ital,wght@0,400;0,700;1,400&display=swap');
-    * {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-cursor: crosshair;
-}
-
-::selection { background: orange; }
-
-
-body {
-font-family: Lato, Arial, sans-serif;
-}
-
-section {
-width: 100%;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-position: relative;
-padding: 80px 0;
-text-align: center;
-}
-
-section h2 {
-font-size: 48px;
-color: #fff;
-text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-margin-bottom: 20px;
-}
-
-section p {
-font-size: 18px;
-color: #000;
-line-height: 1.5;
-margin-bottom: 40px;
-max-width: 700px;
-text-align: left;
-font-family: Lato, sans-serif;
-}
-
-section:before {
-content: "";
-display: block;
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-z-index: -1;
-transition: background-color 1s ease-in-out;
-}
-
-section:nth-child(1):before {
-background: linear-gradient(to bottom, #00bfff 0%, #FFF 100%);
-}
-
-section:nth-child(2):before {
-background: linear-gradient(to bottom, #FFF 0%, orange 100%);
-}
-
-section:nth-child(3):before {
-background: linear-gradient(to bottom, orange 0%, pink 100%);
-}
-
-section:nth-child(4):before {
-background: linear-gradient(to bottom, pink 0%, magenta 100%);
-}
-
-section:nth-child(5):before {
-background: linear-gradient(to bottom, magenta 0%, #00bfff 100%);
-}
-
-
-.messageBOARDS{
-background-image:url('svgs/test.svg');
-background-repeat: no-repeat;
-width: 630px;
-height: 128.07px;
-/* Message Boards */
-}
-.messageBOARDS h3 {
-width: 491px;
-height: 50px;
-font-weight: 400;
-font-size: 48px;
-padding-top: 15px;
-color: #000000;
-}
-
-.username-section1{
-  /* Momosamuri */
-float: left;
-width: 171px;
-padding-top:30px;
-font-family: 'Akshar';
-font-style: normal;
-font-weight: 400;
-font-size: 24px;
-line-height: 26px;
-
-color: #000000;
-}
-
-#marqueeContainer {
-  padding-bottom: 20px;
-}
-
-.headline {
-            position: relative;
-            display: inline-block;
-            font-size: 144px;
-            font-family: Fredoka One;
-            color: #fff;
-            text-decoration: none;
-            overflow: hidden;
-            padding-bottom: 5px;
-        }
-
-        .subheadline {
-                    position: relative;
-                    display: inline-block;
-                    font-size: 44px;
-                    font-family: Fredoka One;
-                    color: #fff;
-                }
-
-
-        .headline::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 10px;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M0,10 Q5,0 10,10' fill='none' stroke='%2300f' stroke-width='2'/%3E%3C/svg%3E");
-            background-repeat: repeat-x;
-            background-size: auto 10px;
-            animation: shiftColors 4s linear infinite, shiftBackground 1s linear infinite;
-        }
-
-        @keyframes shiftColors {
-            0% {
-                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M0,10 Q5,0 10,10' fill='none' stroke='hsl(0, 100%, 50%)' stroke-width='2'/%3E%3C/svg%3E");
-            }
-            16.67% {
-                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M0,10 Q5,0 10,10' fill='none' stroke='hsl(60, 100%, 50%)' stroke-width='2'/%3E%3C/svg%3E");
-            }
-            33.33% {
-                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M0,10 Q5,0 10,10' fill='none' stroke='hsl(120, 100%, 50%)' stroke-width='2'/%3E%3C/svg%3E");
-            }
-            50% {
-                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M0,10 Q5,0 10,10' fill='none' stroke='hsl(180, 100%, 50%)' stroke-width='2'/%3E%3C/svg%3E");
-            }
-            66.67% {
-                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M0,10 Q5,0 10,10' fill='none' stroke='hsl(240, 100%, 50%)' stroke-width='2'/%3E%3C/svg%3E");
-            }
-            83.34% {
-                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M0,10 Q5,0 10,10' fill='none' stroke='hsl(300, 100%, 50%)' stroke-width='2'/%3E%3C/svg%3E");
-            }
-
-            100% {
-                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M0,10 Q5,0 10,10' fill='none' stroke='hsl(360, 100%, 50%)' stroke-width='2'/%3E%3C/svg%3E");
-            }
-}
-            .byline {
-              font-weight: 900;
-              font-family: Lato;
-              color: #fff;
-            }
-
-            button {
-  background-color: transparent;
-  border: 1px solid red;
-  border-radius: 0.6em;
-  color: red;
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1;  text-decoration: none;
-  text-align: center;
-  text-transform: uppercase;
-
-  &:hover,
-  &:focus {
-    color: #fff;
-    outline: 0;
-  }
-  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
-  &:hover {
-    box-shadow: 0 0 40px 40px $red inset;
-  }
-}
-
-.firstcharacter {
-  color: Purple;
-  float: left;
-  font-family: Georgia;
-  font-size: 75px;
-  line-height: 60px;
-  padding-top: 4px;
-  padding-right: 8px;
-  padding-left: 3px;
-}
-    </style>
+<link rel="stylesheet" href="siggy.css">
+<link href='https://cdn.knightlab.com/libs/soundcite/latest/css/player.css' rel='stylesheet' type='text/css'><script type='text/javascript' src='https://cdn.knightlab.com/libs/soundcite/latest/js/soundcite.min.js'></script>
 </head>
 <body>
 
@@ -343,33 +137,48 @@ welcome!
 </div>
 
 </div>
-</div>
 <br/><br/><br/><br/>
 <h1 class="headline">SIGGY SHOP</h1> <br/> <div class="subheadline">A LOVE LETTER TO ONLINE MESSAGE BOARDS</div><br/>
 <span class="byline">By Reese Oxner / Momosamuri</span><br/><br/>
-<p>
- I love the <<em></em>marquee>. <br/><br/>
 
-For the uninitiated, the marquee tag is a no-longer-to-be-used HTML tag that creates scrolling text. <br/><br/>
+<!!-- text section 1 -->
+<p style="text-align:left;">The internet used to feel so much smaller to me.</p>
+<p>I was fascinated with the internet from the first time I encountered it. I felt like an explorer mapping uncharted land, kicking off expeditions at the public library, at school, or on my dad’s home PC. Later, I wanted to create within this space, to leave behind tiny islands that were my own, floating in cyberspace.</p>
+<p>I’ve always been interested in carving out my own piece of the World Wide Web. And when I was a kid, that felt very possible. I was born too late to witness the peak of Geocities or MySpace, but I think I would have really liked them. Instead, my version of this was found on online message boards.</p>
+<p>The story of how I first encountered the internet is a short one. The year is 2003. I’m five.  I’m asleep but tossing around — there are subdued whispers and shuffling in my bedroom seeping in through my dreams.</p>
+<p>“Reese wake up!” my Mom quickly said, resting a hand on my shoulder. She was waking me earlier than usual. She and my Dad were too excited to wait.  “Look what we got you!”</p>
+<p>I rubbed my eyes confused and sat up in my bed. As my vision cleared, I looked to where my mom was gesturing to see a brand-new Dell computer sitting at my desk. My parents had gotten it for my fifth birthday and quietly assembled it in my bedroom while I slept. I sat down at the desk and relished the new computer smell and the static on the monitor crackling as I booted it up.</p>
+<p>My dad had nurtured a love of computers for as long as I can remember. My parents’ gift served two purposes. First and foremost, they got me the gift I wanted most. But the added benefit is that they would be freeing up the family computer that I had taken residence at — hogging it from the two of them. I had been sitting at the PC and playing games my dad bought me for a while already, so getting me my own device was the natural next step. </p>
+<p>After thanking my parents excitedly, I sat down and opened Internet Explorer. I typed the first thing that came to mind (and consequently one of the few things I could spell): my name.</p>
+<p>R-E-E-S-E. Go.</p>
 
-<marquee direction="right">Like this.</marquee> <br/><br/>
+<p><span class="soundcite" data-id="1483418971" data-start="0" data-end="13000" data-plays="1">The dial-up tone rang. The orange background loaded first.</p>
 
-That small piece of code is the reason I learned front-end development. It also spurred a love for online communities that informed many parts of my life. In a series of cascading events, the marquee tag has created a throughline from my ten-year-old self to today, informing my college major and career. For real.<br/><br/>
+<div class="browser-window">
+  <div class="address-bar">
+    <input type="text" value="reeses.com">
+    <div class="icon"></div>
+  </div>
+  <div class="website-content">
+    <!-- Orange background color -->
+  </div>
+</div>
 
-For some unknowable reason, I’ve always craved to carve out a space for myself on the internet. Not because I wanted to be known or to be a creator or influencer. I don’t really like to tweet or share my thoughts widely on social media for the most part. More so, I’ve loved the thought of creating my own digital island. I think I might’ve liked MySpace, though I never had an account. I was born a few years too late. I also think I would’ve liked the era of the internet when it was kind of the wild west with single-purpose websites sprouting up made solely with HTML, sporting neon colors and graphics, and defying layout conventions.<br/><br/>
+<p>And behold. A website loaded up. I thought of something in my head, typed it out and there it was. Just like that, I was exposed to the whole new world of the internet. For now, it was short-lived — after some supervised exploration, my parents (smartly) decided to not give a five-year-old free range of the internet. But I always remember the feeling of possibility and associating that with my early internet days. For the next several years, I mostly used my computer to play Command and Conquer Red Alert II, and draw pictures in MS Paint or KidPix. At school during the weekly computer lab I got to explore the internet. </p>
+<p>But when I was in middle school, my parents decided to make two major life changes: my brother and I were going to be homeschooled & we were going to move from North Texas to a small city in Florida. Our routines were turned on their head. I suddenly had a lot of time on my hands. Another major change — we got wifi.</p>
+<p>Like most kids my age, I loved cartoons, especially Nickelodeon. More than anything, I was obsessed with Avatar: The Last Airbender. I decided to go to Nick.com to search for some Flash video games when I stumbled across something I hadn’t seen before: internet message boards.</p>
 
-I was 10 years old when I really started using the internet. When we moved to Florida, my parents decided to get it so we can stay connected to our extended family. We turned the extra bedroom into a computer room, which soon became where I camped out for hours. When it was time for me to go into the fifth grade, my parents decided to homeschool me. So suddenly, I had a lot of time at home.<br/><br/>
-
-As a homeschooled kid addicted to the internet and an avid collector of fandoms, message boards became my fascination. I liked how they allowed users to own little pieces of the internet. And it all started with Nick.com<br/><br/></p>
-
-<h3>HOW NICKELODEON TAUGHT ME TO CODE</h3><br/><p>
-On Nick.com Message Boards, there were several boards for discussion, mostly revolving around the various Nickelodeon franchises. But my favorite boards were the ones centered on social topics.<br/><br/>
-
-The coolest part of the forum for me was that it allowed for HTML formatting. This was my first exposure to any sort of coding, and even though it was just basic markup, I thought it was really cool. All the most active users would use HTML to add effects to their name as a signature and copy it into the bottom of their post.  My username was Momosamuri — a mashup of the words Momo and Samurai (which I misspelled) based on a <a href="https://www.youtube.com/watch?v=tCZUHKUU8nY">scene from Avatar: The Last Airbender</a>.<br/><br/>
-
-One of the moderators, a Nickelodeon employee who went by NickFROG, wrote a guide on the basics of HTML, and I became obsessed with learning the ins and outs. Soon, I moved on to reading W3Schools’ website. I was hooked. I began creating mini webpages on the site for any topic, getting creative because using images was not allowed.<br/><br/>
-
-Like I said before, the No. 1 tag used on these forums was the <marquee<b></b>> tag. All of the regular users of the message board had scrolling signatures in their bio — but not just plain text, the coolest signatures were the ones that skeweed maximalist, layering drop shadows on top of drop shadows with thick inset borders, Wingdings for symbols and a clash of neon colors. I became obsessed with making these signatures too. So, I decided to take my talents to the off-topic section and created what was known as a “siggy shop” — a post where kids who didn’t know how HTML worked could request custom signatures.
+<p>Nick.com was my first major stop which defined the rest of my time on the internet up until now.
+Up until this point, my internet journey hadn’t consisted of any sort of social network or real online community. The MyNick forums were a revelation. I signed up for an account and racked my brain to think of a username. I settled on Momosamuri — a mashup of the words Momo and Samurai (which I misspelled) based on a scene from Avatar: The Last Airbender, the franchise that I’d be most active in discussing on the message board.</p>
+<p>Soon, the forums became part of my daily routine. Wake up at 5 am. Take a cold shower (I read online that it was healthier for you). Make coffee. Do my homework. Be done with assignments by noon. Eat lunch. Then it was time to log in. I started with the social boards, where we discussed hobbies and other IRL things. Refresh. Check the Avatar The Last Airbender forums. See if my favorite fanfictions were updated. Refresh. </p>
+<p>I made friends on the forum. I looked forward to seeing their latest updates. The hard part was that posts only appeared after a moderator manually approved them. This made each post have a delay that could fluctuate from a few hours to a couple of days. Still, I refreshed the boards constantly.</p>
+<p>One feature of these message boards had an unexpectedly large impact on my life. The site allowed in-line HTML to format posts and it was my first brush with any sort of coding. Turns out, this would be my obsession as a kid. </p>
+<p>And it started with the &lt;marquee&gt; tag.</p>
+<p>HOW NICKELODEON TAUGHT ME TO CODE</p>
+<p>For the uninitiated, the marquee tag is a no-longer-to-be-used HTML tag that creates scrolling text.</p>
+<p>Like this.</p>
+<p>That small piece of code is the reason I learned front-end development. It also spurred a love for online communities. In a series of cascading events, the marquee tag has created a throughline from my ten-year-old self to today, informing my college major and career.</p>
+<p>All of the regular users of the message board had scrolling signatures in their bio — but not just plain text, the coolest signatures were the ones that skewed maximalist, layering drop shadows on top of drop shadows with thick inset borders, Wingdings for symbols and a clash of neon colors. I became obsessed with making these signatures too. So, I decided to take my talents to the off-topic section and created what was known as a “siggy shop” — a post where kids who didn’t know how HTML worked could request custom signatures.</p>
 
 <div class="messageBOARDS"> <h3>MessageBOARDS</h3></div>
 
@@ -398,59 +207,31 @@ I am practicing coding and would be happy to make your next siggy. Just give me 
     <section><div class="content-container"></div>
       <h3>  EXTRA EXTRA, READ ALL ABOUT IT</h3><br/><br/></div>
 <em>> Kids-Weekly</em><br/><br/>
-<p><span class="firstcharacter">S</span>lowly, I began peeling away from Nick.com. I think what really did me in, is that I wrote a fanfiction in the world of Avatar, The Last Airbender but it got removed from the site (the moderator said it was “too explosive” for the site.)<br/><br/>
-
-I must have remained an active member for quite a while but don’t remember exactly how long. I took the bit of HTML I learned on Nick.com began developing my own web pages. I even gifted my mom a website (lol) I coded for her on Mother’s Day, complete with jokes, poems, and “Happy Birthday” playing on repeat. I did the same thing for my Dad and brother on other occasions, not realizing what a strange gift a random webpage is.<br/><br/>
-
-After a while, I decided I needed a bigger project. So I started planning to launch a site I called Kids Weekly, which was supposed to be an online newspaper geared toward other kids. I messaged all my friends from elementary school and asked them to be a part of it. I spent several days figuring out how to host the website online and how to code a full-fledged layout. I wrote a handful of articles to start and pestered get my friends to write theirs. So at the end of the week, my first ever byline was on a website that I created. The website fizzled out, but it felt good to have completed an actual website live on the internet. <br/><br/>Years later, I had my next byline appear — this time in my college newspaper. The day of my interview with my future editor, I even mentioned Kids Weekly in the interview, as a kind of full circle moment. I know that the experience of making the website encouraged me to apply to the newspaper — I wasn't a journalism major and had no need to apply. Six years later, I've made a career in journalism and made my closest friends in that student newsroom. And it all started with kids-weekly.com. <br/>
-</p>
+<span class="firstcharacter">S</span>
+<!!-- text section 2 -->
     </section>
 <section>
   <div style="background-image:url('svgs/sso.svg'); width:966px; height:559px;"></div><br/>
 Welcome to the Soul Secter Origins!
     <h3>BACK TO THE FORUMS</h3>
 <p><em>> SOUL SECTOR ORIGINS</em><br/>
-<span class="firstcharacter">E</span>ven while I was exercising my journalistic aspirations and working on Kids-Weekly, I remained a Nick.com user. The message boards were limited though — they didn’t allow links to other sites. It was a message board open to kids under 13, so they tried to keep it a closed environment. Still, somehow, one girl was able to get a post by the mods saying she was recruiting moderators for her very own forum. She told anyone interested to google [censored] and PM her on the site. I thought being a forum moderator sounded very fun, so I  searched for her site. <br/><br/>
 
-It was a Stephanie Meyers-themed forum that she created using Proboards, a free forums builder. I was the only kid who took her up on her offer to join. She mostly wanted to discuss The Host, Twilight and other franchises. So, even though I had never read or watched a single piece of Meyer’s work, I told her I would love to help her out in creating this forum. I became the site’s second user and only moderator and was dubbed “webmaster” after I demonstrated my HTML skills.<br/><br/>
-
-Thus I made my first online friend. We had several shared interests: fandoms, such as Avatar: The Last Airbender, Percy Jackson, Teen Titans, and other tv shows. But we also almost shared a birthday (her’s was three days after mine, although she was a year older) and she too lived in Florida. She also had fallen in love with Message Boards because of Nick.com, and she wanted to make her own — one away from all the rules that Nickelodeon had imposed on us kids.<br/><br/>
-
-I look back on these times with intense nostalgia. I was able to access some of the archived forum posts, and the content is as cringey as you’d expect two 10/11-year-olds to be, ending words with a “z” instead of an “s” and signing off with emoticons like “xD.” But for whatever reason, we were both having so much fun setting up various sections on the site, building out themes, adding features and brainstorming the norms we’d establish on the forum.<br/><br/>
-
-Over the next nearly three months, we posted 186 times and exchanged countless private messages. I became obsessed with another forum called Wormocodes, a group that specialized in creating custom hacks for these type of forum sites. I learned a lot more about web coding from modding the forum and diving into scripting. But we failed to obtain even a single active user on the site other than the two of us. Eventually we stopped posting, and we fell out of touch after a while. <br/><br/>
- </p>
+<!!-- text section 3 -->
+<span class="firstcharacter">E</span>
 </section>
 
 <section>
     <h3>GOTTA CATCH THEM ALL<br/></h3><p>
 <em>> POKEMON SOLSTICE <br>> EVERGRANDECITY</em><br/><br/>
-<span class="firstcharacter">N</span> ot long after I signed off of Soul Sector Origins, I found Pokemon Solstice. This forum and its successor Ever Grande City mark the height of my message-board era.<br/><br/>
-
-The thing is, I know now I was way too young to be on this site initially, which had mostly older teenagers and some adults. Not that there was anything inherently damaging about these sites, but I think I was probably annoying in the way only a 12-year-old can annoy teenagers. A little bit too earnest, a little too eager. But this is all in retrospect; At the time I loved these forums. I made friends. I participated in virtual events. For a time, I was one of the most active users on the site.<br/><br/>
-
-This forum also taught me about CSS. While raw HTML was not allowed on the site, you use inline CSS to style posts and create signatures. I quickly learned how to style using this new-to-me markup language, starting with a guide by one of the site moderators. I ended up opening a new Siggy Shop and made layouts for other users of the site.<br/><br/>
-
-One of my favorite aspects of these forums was the ability to craft a new identity at will. Every two months, we were allowed to request a username change. And each time I did, usually modeled after whatever characters I was obsessed with at the time. I would create a new avatar, design a new signature, adopt a new tagline, and create post layouts. And more than I loved posting on the forums, I loved creating these themes.<br/><br/>
-
-Pokemon Solstice ended up disappearing abruptly and we migrated to a new forum called Ever Grande City, founded by many of the same staff members. While my activity started to wane on the old forum, I was again an active user on the new site. I would log in at least once a day, greeted by half a dozen or so PMs from my forum friends. I think the last time I really was active I was 15. But over time, I lost interest and became busier. I had made more friends in Florida at this point IRL and logged on less and less. I would still periodically check in until the day the forums were shut down — a moment that still sent a pang through my heart thinking of all the posts that were instantly wiped from the internet.<br/><br/>
+<span class="firstcharacter">N</span> <!!-- text section 4 -->
 </p>
 </section>
 
 <section><h3>IN CLOSING<br/></h3><p>
 <br/>
-<span class="firstcharacter">T</span>here were a few other online communities I became an active member on, but I was slowly becoming weary of them. I traded the anonymity of a fandom Tumblr for an Instagram with all my friends. By the time I turned 17 and went to college, I wasn’t an active user on any of these communities.<br/><br/>
 
-I still revisit these traces of my online life. I look at it with fondness more than being embarrassed at how I used to be. In a million different ways, I am unrecognizable. I have changed how I move through the world. I have different priorities. I have many dear friends in real life and zero online ones. Being able to retreat into these online communities was a fun use of my time as a kid, but I also saw many people on them use them as a crutch.<br/><br/>
-
-There are ghosts of my former internet life that still manifest in my life today. I still like to carve out little internet spaces — like my site <a href="https://reese.land">reese.land</a> or even this essay. I still think there is a lot of power in online communities — both independent of and in conjunction with IRL communities. And my career, as silly as it sounds, really can find its origin story in these spaces. And in a way, I still have the appetite to create these kinds of spaces. I made my friends all join a Slack group, complete with topical channels, weekly prompts and a daily question of the day that I came up with. In another world, I could have created a more traditional message board.<br/><br/>
-
-Out of all the forums that I used to frequent, only one remains standing. Even Nick retired its message boards. I logged into my old account for the first time in over a decade.<br/><br/>
-
-The forums are a lot less active than they used to be. But they’re still there, and many users return each day. There are still familiar beats, like the Forum Games section and the daily string of intro posts from new users.<br/><br/>
-
-My username on this site is boyblunder — a reference to Robin’s moniker of Boy Wonder and a username I used when I was in my height of Young Justice fandom phase. It’s a name that sort of makes me cringe now but is also an extremely typical example of how users themed their profiles on this site. I thought it'd be fun to make a signature again after all this time so I put together a new theme on my account. <br/><br/>
-</p>
+<!!-- text section 5 -->
+<span class="firstcharacter">T</span>
 
 
 <div style="background-image:url('svgs/pc_bar.svg'); height:140px; width:1022px;"></div>
@@ -468,16 +249,8 @@ vm | dm | intro thread | <span title="“i’m chillin”" style="cursor: help;"
 
 <br/><br/>
 
-<p>I was born in ‘98. I know the internet I grew up on was very different than the decade before — and what the internet looks like today. Screennames are being phased out more and more in favor of the accountability that comes with using your real name. The forums I loved as a kid don’t exist today and probably couldn’t succeed in the way they could before. <br/><br/>
+<!!-- text section 6 -->
 
-I am very much an extrovert. I like to see my friends and go out and be around people most of the time. But as a kid, these spaces felt tangible to me. Even though I used a screenname, I was being myself. Even though I hid behind a color profile picture of a cartoon character, I was making connections with another human being across the screen.<br/><br/>
-
-I never really shared this part of my childhood with anyone in real life. But it was a not-insignificant part of my growing up. I know I won’t become an active forum user again. I wouldn’t want to. But writing this essay and looking through some of the online communities that I called home made me feel nostalgic for these spaces. I met all sorts of different people from all over the world, with different faiths, who spoke different languages and who had very different values — people I never encountered in the very small towns I lived my whole life. Forums were my first brush with meeting people who were so different than me. I think it was good for me to encounter that at such a young age. In a way, they laid the foundation for me for when I went to university and really started meeting people who were very different from me.<br/><br/>
-
-As technology continues to advance, I wonder how internet communities will evolve, too. The metaverse will create widely accessible but niche spaces where internet strangers can connect over their shared specific interests. I wonder if when that day comes, the children who grow up with it will one day look upon it as fondly as I do with message boards.<br/><br/>
-
-<br/><br/>
-</p>
 
 <marquee bgcolor="#FFFFFF" behavior="alternate" direction="right" scrollamount="10" width=500px style="
   border-radius: 20%;
