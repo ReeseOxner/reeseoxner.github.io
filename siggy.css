@@ -77,11 +77,12 @@ background: linear-gradient(to bottom, magenta 0%, #00bfff 100%);
 
 
 .messageBOARDS{
-background-image:url('svgs/test.svg');
+background-image:url('svgs/nickheader.svg');
 background-repeat: no-repeat;
 width: 630px;
 height: 128.07px;
 /* Message Boards */
+
 }
 .messageBOARDS h3 {
 width: 491px;
