@@ -5,6 +5,12 @@ async function updateCssFromLatestJson() {
     const response = await fetch('content.json');
     const data = await response.json();
 
+    data.versions.sort((a, b) => a.id - b.id); 
+    const select = document.getElementById('version-selector');
+    const leftArrow = document.getElementById('right-arrow');
+    const rightArrow = document.getElementById('left-arrow');
+
+
     const maxId = Math.max(...data.versions.map(version => version.id));
     const latestVersion = data.versions.find(version => version.id === maxId);
 
@@ -209,5 +215,6 @@ document.getElementById('copy-json').addEventListener('click', async function ()
   const output = await generateJSON();
   copyToClipboard(JSON.stringify(output, null, 2));
 });
+
 
 loadContent();

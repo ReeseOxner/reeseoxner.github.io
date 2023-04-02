@@ -1,56 +1,19 @@
-<div id="form-container">
-  <form id="json-entry-form">
-    <p>um... this is awkward. this box is just for reese to generate json for future entries. push esc to exit.</p>
-  <label for="name">Name: </label>
-  <input type="text" id="name" name="name"><br><br>
+<!--
+                                                      (                         (
+ (  (           (                             )       )\ )                      )\ )                (
+ )\))(   '   (  )\             )      (    ( /(      (()/(   (    (        (   (()/(     )          )\ )
+((_)()\ )   ))\((_) (   (     (      ))\   )\()) (    /(_)) ))\  ))\ (    ))\   /(_)) ( /(   (     (()/(
+_(())\_)() /((_)_   )\  )\    )\  ' /((_) (_))/  )\  (_))  /((_)/((_))\  /((_) (_))   )(_))  )\ )   ((_))
+\ \((_)/ /(_)) | | ((_)((_) _((_)) (_))   | |_  ((_) | _ \(_)) (_)) ((_)(_))   | |   ((_)_  _(_/(   _| |
+ \ \/\/ / / -_)| |/ _|/ _ \| '  \()/ -_)  |  _|/ _ \ |   // -_)/ -_)(_-</ -_)  | |__ / _` || ' \))/ _` |
+  \_/\_/  \___||_|\__|\___/|_|_|_| \___|   \__|\___/ |_|_\\___|\___|/__/\___|  |____|\__,_||_||_| \__,_|
 
-  <label for="color">Color: </label>
-  <input type="color" id="color" name="color" value="#5cdb95"><br><br>
-
-  <label for="watching">What I'm watching: </label>
-  <input type="text" id="watching" name="watching"><br><br>
-
-  <label for="watching-url">Watching URL: </label>
-  <input type="text" id="watching-url" name="watching-url"><br><br>
-
-  <label for="listening">What I'm listening to: </label>
-  <input type="text" id="listening" name="listening"><br><br>
-
-  <label for="listening">Listening URL: </label>
-  <input type="text" id="listening-url" name="listening-url"><br><br>
-
-  <label for="reading">What I'm reading: </label>
-  <input type="text" id="reading" name="reading"><br><br>
-
-  <label for="reading">Reading URL: </label>
-  <input type="text" id="reading-url" name="reading-url"><br><br>
-
-  <label for="eating">What I'm eating: </label>
-  <input type="text" id="eating" name="eating"><br><br>
-
-  <label for="eating">Eating URL: </label>
-  <input type="text" id="eating-url" name="eating-url"><br><br>
-
-  <label for="best-meal">The best meal I've had recently: </label>
-  <input type="text" id="best-meal" name="best-meal"><br><br>
-
-  <label for="best-meal">Best meal URL: </label>
-  <input type="text" id="best-meal-url" name="best-meal-url"><br><br>
-
-  <button type="submit" id="generatejson">Generate JSON Entry</button>
-
-  <p style="overflow: auto; width:400px;">
-    <pre id="reese"><textarea id="json-output"></textarea></pre>
-    <button type="button" id="copy-json">Copy JSON</button>
-  </p>
-  </form>
-</div>
+  -->
 
 
 
 
 <html>
-
 <head>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⭐</text></svg>">
 <link rel="stylesheet" href="style.css">
@@ -66,6 +29,55 @@
 
 </head>
 <body>
+
+  <div id="form-container">
+    <form id="json-entry-form">
+      <p>um... this is awkward. this box is just for reese to generate json for future entries. push esc to exit.</p>
+    <label for="name">Name: </label>
+    <input type="text" id="name" name="name"><br><br>
+
+    <label for="color">Color: </label>
+    <input type="color" id="color" name="color" value="#5cdb95"><br><br>
+
+    <label for="watching">What I'm watching: </label>
+    <input type="text" id="watching" name="watching"><br><br>
+
+    <label for="watching-url">Watching URL: </label>
+    <input type="text" id="watching-url" name="watching-url"><br><br>
+
+    <label for="listening">What I'm listening to: </label>
+    <input type="text" id="listening" name="listening"><br><br>
+
+    <label for="listening">Listening URL: </label>
+    <input type="text" id="listening-url" name="listening-url"><br><br>
+
+    <label for="reading">What I'm reading: </label>
+    <input type="text" id="reading" name="reading"><br><br>
+
+    <label for="reading">Reading URL: </label>
+    <input type="text" id="reading-url" name="reading-url"><br><br>
+
+    <label for="eating">What I'm eating: </label>
+    <input type="text" id="eating" name="eating"><br><br>
+
+    <label for="eating">Eating URL: </label>
+    <input type="text" id="eating-url" name="eating-url"><br><br>
+
+    <label for="best-meal">The best meal I've had recently: </label>
+    <input type="text" id="best-meal" name="best-meal"><br><br>
+
+    <label for="best-meal">Best meal URL: </label>
+    <input type="text" id="best-meal-url" name="best-meal-url"><br><br>
+
+    <button type="submit" id="generatejson">Generate JSON Entry</button>
+
+    <p style="overflow: auto; width:400px;">
+      <pre id="reese"><textarea id="json-output"></textarea></pre>
+      <button type="button" id="copy-json">Copy JSON</button>
+    </p>
+    </form>
+  </div>
+
   <div class="typewriter">
     <h1>welcome to reese land</h1>
   </div>

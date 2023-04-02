@@ -8,15 +8,15 @@
     },
     {
   "id": 2,
-  "name": "sept. 14, 2022",
-  "color": "orange",
-  "html": "<p class='p1'>hi, its me, reese oxner</p><p class='p1'><strong>here's what i'm up to</p></strong><p class='p1'>what i'm watching <strong><a href='https://www.netflix.com/title/81245457' target='_blank' style='text-decoration: none;'>→</a> bee and puppycat</strong></p><p class='p1'>what i'm listening to <strong><a href='https://open.spotify.com/track/1yYlpGuBiRRf33e1gY61bN?si=f1029ee5de6d44fc' target='_blank' style='text-decoration: none;'>→</a> nightshift by lucy dacus</strong></p><p class='p1'>what i'm reading <a href='https://www.bookpeople.com/book/9781328764522' target='_blank' style='text-decoration: none;'>→</a> <strong>how to write an autobiographical novel by alexander chee</strong></p><p class='p1'>what i'm eating <a href='https://simple-veganista.com/simple-lemon-pasta/' target='_blank' style='text-decoration: none;'>→</a> <strong>lemon pasta</strong></p><p class='p1'>the best meal i've had recently <a href='https://i.imgur.com/l6ki8Zo.jpg' target='_blank' style='text-decoration: none;'>→</a> <strong>goat cheese taquitos with mole, braised shortrib (in guanajuato, aug. 2022)</strong></p>"
-    },
-    {
-  "id": 1,
   "name": "jan. 10, 2023",
   "color": "#5cdb95",
   "html": "<p class='p1'>hi, its me, reese oxner</p><p class='p1'><strong>here's what i'm up to</p></strong><p class='p1'>what i'm watching <strong><a href='https://tv.apple.com/us/episode/pilot/umc.cmc.4nophqr1ztliqnbyeh0i7nnn2?action=playSmartEpisode' target='_blank' style='text-decoration: none;'>→</a> mythic quest & abbott elementary</strong></p><p class='p1'>what i'm listening to <strong><a href='https://open.spotify.com/track/0UKSse3fcKetDzXnXzE1Pv?si=3ef3c8d060b8490a' target='_blank' style='text-decoration: none;'>→</a> gracias a la vida by mercedes sosa</strong></p><p class='p1'>what i'm reading <a href='https://www.bookpeople.com/book/9781328764522' target='_blank' style='text-decoration: none;'>→</a> <strong>how to write an autobiographical novel by alexander chee</strong></p><p class='p1'>what i'm eating <a href='https://cooking.nytimes.com/recipes/1023675-gochujang-caramel-cookies' target='_blank' style='text-decoration: none;'>→</a> <strong>eric kim gochugang cookies</strong></p><p class='p1'>the best meal i've had recently <a href='https://i.imgur.com/evpCWOM.jpg' target='_blank' style='text-decoration: none;'>→</a> <strong>striped bass with tamarind, rum butter, green mango & papaya from canje in austin, tx</strong></p>"
-    }
+},
+{
+"id": 1,
+"name": "sept. 14, 2022",
+"color": "orange",
+"html": "<p class='p1'>hi, its me, reese oxner</p><p class='p1'><strong>here's what i'm up to</p></strong><p class='p1'>what i'm watching <strong><a href='https://www.netflix.com/title/81245457' target='_blank' style='text-decoration: none;'>→</a> bee and puppycat</strong></p><p class='p1'>what i'm listening to <strong><a href='https://open.spotify.com/track/1yYlpGuBiRRf33e1gY61bN?si=f1029ee5de6d44fc' target='_blank' style='text-decoration: none;'>→</a> nightshift by lucy dacus</strong></p><p class='p1'>what i'm reading <a href='https://www.bookpeople.com/book/9781328764522' target='_blank' style='text-decoration: none;'>→</a> <strong>how to write an autobiographical novel by alexander chee</strong></p><p class='p1'>what i'm eating <a href='https://simple-veganista.com/simple-lemon-pasta/' target='_blank' style='text-decoration: none;'>→</a> <strong>lemon pasta</strong></p><p class='p1'>the best meal i've had recently <a href='https://i.imgur.com/l6ki8Zo.jpg' target='_blank' style='text-decoration: none;'>→</a> <strong>goat cheese taquitos with mole, braised shortrib (in guanajuato, aug. 2022)</strong></p>"
+}
   ]
 }
