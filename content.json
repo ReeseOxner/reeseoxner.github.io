@@ -1,11 +1,6 @@
 {
   "versions": [
     {
-      "id": 4,
-      "name": "april 2, 2023",
-      "color": "#5900ff",
-      "html": "<p class='p1'>hi, its me, reese oxner</p><p class='p1'><strong>here's what i'm up to</p></strong><p class='p1'>what i'm watching <strong><a href='https://www.hulu.com/series/frasier-0cb9b63b-de82-4751-99c9-1cb12118ab9d' target='_blank' style='text-decoration: none;'>→</a> fraiser</strong></p><p class='p1'>what i'm listening to <strong><a href=''>→</a>foejfoe</strong></p><p class='p1'>what i'm reading <strong><a href='’' target='_blank' style='text-decoration: none;'>→</a> '</strong></p><p class='p1'>what i'm eating <strong><a href='' target='_blank' style='text-decoration: none;'>→</a> </strong></p><p class='p1'>the best meal i've had recently <strong><a href='' target='_blank' style='text-decoration: none;'>→</a> </strong></p>"
-    }, {
   "id": 3,
   "name": "april 2, 2023",
   "color": "#FFEB0A",
