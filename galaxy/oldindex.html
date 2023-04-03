@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>The World is Quiet Here</title>
+</head>
+<body>
+  <h1>The World is Quiet Here</h1>
+  <p>Unless you add URL parameters.</p>
+  <script>
+    // Parse the URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+
+    // Get the headings from the URL parameters
+    const headings = urlParams.getAll("heading");
+
+    // Get the paragraphs from the URL parameters
+    const paragraphs = urlParams.getAll("paragraph");
+
+    // Get the links from the URL parameters
+    const links = urlParams.getAll("link");
+
+    // If there are any headings, add them to the page
+    if (headings.length > 0) {
+      const headingContainer = document.createElement("div");
+      headingContainer.classList.add("heading-container");
+      for (const heading of headings) {
+        const h2 = document.createElement("h2");
+        h2.textContent = heading;
+        headingContainer.appendChild(h2);
+      }
+      document.body.appendChild(headingContainer);
+    }
+
+    // If there are any paragraphs, add them to the page
+    if (paragraphs.length > 0) {
+      const paragraphContainer = document.createElement("div");
+      paragraphContainer.classList.add("paragraph-container");
+      for (const paragraph of paragraphs) {
+        const p = document.createElement("p");
+        p.textContent = paragraph;
+        paragraphContainer.appendChild(p);
+      }
+      document.body.appendChild(paragraphContainer);
+    }
+
+    // If there are any links, add them to the page
+    if (links.length > 0) {
+      const linkContainer = document.createElement("div");
+      linkContainer.classList.add("link-container");
+      for (const link of links) {
+        const parts = link.split("))");
+        const text = parts[0].substring(2);
+        const url = parts[1].substring(0, parts[1].length - 1);
+        const a = document.createElement("a");
+        a.textContent = text;
+        a.href = url;
+        linkContainer.appendChild(a);
+      }
+      document.body.appendChild(linkContainer);
+    }
+  </script>
+</body>
+</html>

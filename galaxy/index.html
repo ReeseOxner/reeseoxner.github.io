@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quiet World</title>
+  <link rel="stylesheet" href="themes.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/12.3.0/markdown-it.min.js"></script>
+  <script src="main.js"></script>
+</head>
+<body>
+  <div id="content">The world is quiet here.</div>
+  <script>
+    const contentElement = document.getElementById("content");
+    const md = new markdownit();
+    handleUrlParams(contentElement, md);
+  </script>
+</body>
+</html>

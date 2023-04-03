@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>URL Generator with Quill</title>
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+  <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/12.3.0/markdown-it.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turndown/7.1.1/turndown.min.js"></script>
+  <style>
+    #editor {
+      height: 200px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Rich Text Editor (Quill)</h1>
+  <label for="title">Title:</label>
+  <input type="text" id="title" placeholder="Enter the title">
+  <div id="editor"></div>
+  <label for="theme">Select a theme:</label>
+  <select id="theme">
+    <option value="light">Light</option>
+    <option value="dark">Dark</option>
+    <option value="solarized">Solarized</option>
+    <option value="retro">Retro</option>
+    <option value="forest">Forest</option>
+  </select>
+  <input type="hidden" id="alignments" value="">
+  <button id="generateUrl">Generate URL</button>
+  <h2>Generated URL</h2>
+  <div id="url"></div>
+  <script>
+    const editor = new Quill('#editor', {
+      theme: 'snow',
+      modules: {
+        toolbar: [
+          ['bold', 'italic', 'underline', 'strike'],
+          ['blockquote', 'code-block'],
+          [{ 'header': 1 }, { 'header': 2 }],
+          [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+          [{ 'script': 'sub'}, { 'script': 'super' }],
+          [{ 'indent': '-1'}, { 'indent': '+1' }],
+          [{ 'direction': 'rtl' }],
+          [{ 'size': ['small', false, 'large', 'huge'] }],
+          [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+          [{ 'color': [] }, { 'background': [] }],
+          [{ 'font': [] }],
+          [{ 'align': [] }],
+          ['clean'],
+          ['image']
+        ]
+      }
+    });
+
+    const titleInput = document.getElementById("title");
+    const themeSelector = document.getElementById("theme");
+    const generateUrlButton = document.getElementById("generateUrl");
+    const urlElement = document.getElementById("url");
+
+    generateUrlButton.addEventListener("click", () => {
+      const delta = editor.getContents();
+      const html = editor.root.innerHTML;
+      const markdown = toMarkdown(html);
+      const encodedMarkdownText = encodeURIComponent(markdown);
+      const selectedTheme = themeSelector.value;
+      const title = encodeURIComponent(titleInput.value);
+      const generatedUrl = `localhost:8000?title=${title}&text=${encodedMarkdownText}&theme=${selectedTheme}`;
+      urlElement.textContent = generatedUrl;
+    });
+
+    function toMarkdown(html) {
+      const turndownService = new TurndownService();
+      const markdown = turndownService.turndown(html);
+      return markdown;
+    }
+  </script>
