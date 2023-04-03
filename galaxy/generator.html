@@ -58,15 +58,16 @@
     const urlElement = document.getElementById("url");
 
     generateUrlButton.addEventListener("click", () => {
-      const delta = editor.getContents();
-      const html = editor.root.innerHTML;
-      const markdown = toMarkdown(html);
-      const encodedMarkdownText = encodeURIComponent(markdown);
-      const selectedTheme = themeSelector.value;
-      const title = encodeURIComponent(titleInput.value);
-      const generatedUrl = `https://reese.land/galaxy?title=${title}&text=${encodedMarkdownText}&theme=${selectedTheme}`;
-      urlElement.textContent = generatedUrl;
-    });
+  const delta = editor.getContents();
+  const html = editor.root.innerHTML;
+  const markdown = toMarkdown(html);
+  const encodedMarkdownText = encodeURIComponent(markdown);
+  const selectedTheme = themeSelector.value;
+  const title = encodeURIComponent(titleInput.value);
+  const generatedUrl = `https://reese.land/galaxy?title=${title}&text=${encodedMarkdownText}&theme=${selectedTheme}`;
+  urlElement.innerHTML = `<a href="${generatedUrl}" target="_blank" rel="noopener noreferrer">${generatedUrl}</a>`;
+});
+
 
     function toMarkdown(html) {
       const turndownService = new TurndownService();
