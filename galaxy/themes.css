@@ -31,4 +31,104 @@ body.theme-forest {
   color: #a0c194;
 }
 
+/* Ocean */
+.theme-ocean {
+  background-color: #0e3c72;
+  color: #ffffff;
+}
+
+.theme-ocean a {
+  color: #ffd700;
+}
+
+/* Mint */
+.theme-mint {
+  background-color: #98ff98;
+  color: #006400;
+}
+
+.theme-mint a {
+  color: #228b22;
+}
+
+/* Monochrome */
+.theme-monochrome {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.theme-monochrome a {
+  color: #000000;
+}
+
+/* Autumn */
+.theme-autumn {
+  background-color: #ffaa56;
+  color: #8b4513;
+}
+
+.theme-autumn a {
+  color: #b22222;
+}
+
+/* Lavender */
+.theme-lavender {
+  background-color: #e6e6fa;
+  color: #4b0082;
+}
+
+.theme-lavender a {
+  color: #9370db;
+}
+
+/* Sunrise */
+.theme-sunrise {
+  background-color: #ff4500;
+  color: #ffffff;
+}
+
+.theme-sunrise a {
+  color: #ffff00;
+}
+
+/* Dusk */
+.theme-dusk {
+  background-color: #483d8b;
+  color: #ffffff;
+}
+
+.theme-dusk a {
+  color: #ffa07a;
+}
+
+/* Twilight */
+.theme-twilight {
+  background-color: #3d3d3d;
+  color: #d3d3d3;
+}
+
+.theme-twilight a {
+  color: #00ffff;
+}
+
+/* Coral */
+.theme-coral {
+  background-color: #ff7f50;
+  color: #ffffff;
+}
+
+.theme-coral a {
+  color: #7fffd4;
+}
+
+/* Vintage */
+.theme-vintage {
+  background-color: #fdfd96;
+  color: #8b0000;
+}
+
+.theme-vintage a {
+  color: #4682b4;
+}
+
 /* Add more themes below */
