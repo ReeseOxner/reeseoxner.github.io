@@ -1,137 +1,149 @@
+/* Define global variables */
 :root {
-  --primary-color: #5cdb95;
+--primary-color: #5cdb95;
 }
 
-/* GLOBAL STYLES - reese test */
+/* Set default styles for all elements */
 
-* {
-  cursor: url(https://cur.cursors-4u.net/games/gam-12/gam1191.cur), auto !important;
-  text-transform: lowercase;
+{
+cursor: url(https://cur.cursors-4u.net/games/gam-12/gam1191.cur), auto !important;
+text-transform: lowercase;
 }
-
-/* Media query for screens smaller than 768px */
+/* Set styles for screens smaller than 768px */
 @media only screen and (max-width: 767px) {
-  body {
-    padding: 15px;
-    padding-top: 3em;
-  }
-
-  .typewriter h1 {
-    font-size: 28px;
-  }
-
-  #content {
-    font-size: 16px;
-  }
-
-  /* Adjust other styles as needed */
-}
-
-@media (max-width: 767px) {
-  body {
-    display: flex;
-    flex-direction: column;
-  }
-  #content {
-    margin: 0;
-  }
-  #version-selector {
-    margin: 10px 0;
-  }
-}
-
 body {
-  background: #333;
-  padding: 30px;
-  padding-top: 5em;
-  display: flex;
-  justify-content: center;
-  font-family: sans-serif;
+padding: 15px;
+padding-top: 3em;
 }
 
-.navigation-btn {
-  background-color: var(--primary-color);
-  border: none;
-  border-radius: 0;
-  width: 40px;
-  padding: 0;
-  margin: 0;
-}
-
-summary::marker {
-  color: var(--primary-color);
-}
-
-
-/* typewriter styles  */
+/* Reduce font sizes */
 .typewriter h1 {
-  color: #fff;
-  font-family: monospace;
-  overflow: hidden;
-  border-right: .15em solid var(--primary-color);
-  white-space: nowrap;
-  margin: 0 auto;
-  letter-spacing: .15em;
-  animation:
-    typing 3.5s steps(30, end),
-    blink-caret .5s step-end infinite;
+font-size: 24px;
+}
+#content {
+font-size: 16px;
 }
 
+/* Adjust button height */
+button {
+height:50px;
+}
+
+/* Adjust other styles as needed */
+}
+
+/* Set styles for screens smaller than 767px */
+@media (max-width: 767px) {
+body {
+display: flex;
+flex-direction: column;
+}
+#content {
+margin: 0;
+}
+#version-selector {
+margin: 10px 0;
+}
+}
+
+/* Set default styles for the body */
+body {
+background: #333;
+padding: 30px;
+padding-top: 5em;
+display: flex;
+justify-content: center;
+font-family: sans-serif;
+}
+
+/* Set styles for navigation buttons */
+.navigation-btn {
+background-color: var(--primary-color);
+border: none;
+border-radius: 0;
+width: 40px;
+padding: 0;
+margin: 0;
+}
+
+/* Set styles for summary markers */
+summary::marker {
+color: var(--primary-color);
+}
+
+/* Set styles for typewriter effect */
+.typewriter h1 {
+color: #fff;
+font-family: monospace;
+overflow: hidden;
+border-right: .15em solid var(--primary-color);
+white-space: nowrap;
+margin: 0 auto;
+letter-spacing: .15em;
+animation: typing 3.5s steps(30, end), blink-caret .5s step-end infinite;
+}
+
+/* Define keyframe animations for typewriter effect */
 @keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
+from { width: 0 }
+to { width: 100% }
 }
 
 @keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: var(--primary-color) }
+from, to { border-color: transparent }
+50% { border-color: var(--primary-color) }
 }
 
+/* Set styles for paragraphs */
 .p1 {
-  color: #fff;
+color: #fff;
 }
 
+/* Set styles for summary and description lists */
 summary, dl {
-  color: #ffffff !important;
+color: #ffffff !important;
 }
 
+/* Set styles for links */
 a, a:visited {
-  color: var(--primary-color);
+color: var(--primary-color);
 }
 
 a:hover {
-  color: #fff;
+color: #fff;
 }
 
+/* Set styles for highlighted text */
 mark {
-  background-color: var(--primary-color);
+background-color: var(--primary-color);
 }
 
+/* Set styles for selected text */
 ::selection {
-  background: var(--primary-color);
+background: var(--primary-color);
 }
 ::-moz-selection {
-  background: var(--primary-color);
+background: var(--primary-color);
 }
 
-
-
+/* Set styles for form container */
 #form-container {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
-  justify-content: center;
-  align-items: center;
-  display: flex;
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.5);
+z-index: 1000;
+justify-content: center;
+align-items: center;
+display: flex;
 }
 
+/* Set styles for JSON entry form */
 #json-entry-form {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
+background-color: #fff;
+padding: 20px;
+border-radius: 8px;
 }

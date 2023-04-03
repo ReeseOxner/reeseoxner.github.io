@@ -1,19 +1,27 @@
+// Function to get the version number from the URL
+function getURLParameter() {
+  const url = new URL(window.location.href);
+  return url.search ? parseInt(url.search.substring(1)) : null;
+}
+
+// Hide the form container by default
 document.getElementById('form-container').style.display = 'none';
 
+// Function to update the CSS variables from the latest JSON version
 async function updateCssFromLatestJson() {
   try {
     const response = await fetch('content.json');
     const data = await response.json();
 
-    data.versions.sort((a, b) => a.id - b.id); 
+    data.versions.sort((a, b) => a.id - b.id);
     const select = document.getElementById('version-selector');
     const leftArrow = document.getElementById('right-arrow');
     const rightArrow = document.getElementById('left-arrow');
 
-
     const maxId = Math.max(...data.versions.map(version => version.id));
     const latestVersion = data.versions.find(version => version.id === maxId);
 
+    // Set the primary color to the latest version's color
     document.documentElement.style.setProperty('--primary-color', latestVersion.color);
   } catch (error) {
     console.error('Error updating CSS from latest JSON:', error);
@@ -22,10 +30,8 @@ async function updateCssFromLatestJson() {
 
 updateCssFromLatestJson();
 
-// counts items in json
-
+// Function to fetch JSON and count the number of items in the JSON
 let numItems = 0;
-
 const fetchJSON = async () => {
   const response = await fetch('content.json');
   const data = await response.json();
@@ -36,10 +42,10 @@ const fetchJSON = async () => {
 
 fetchJSON();
 
-// version selector
-
+// Function to load content from the JSON file and manage version selection, arrows, and URL updates
 async function loadContent() {
   try {
+    const forcedId = parseInt(getURLParameter());
     const response = await fetch('content.json');
     const data = await response.json();
 
@@ -50,6 +56,7 @@ async function loadContent() {
     let maxId = -1;
     let selectedIndex = 0;
 
+    // Populate the version selector and determine the default selectedIndex
     data.versions.forEach((version, index) => {
       if (version.id > maxId) {
         maxId = version.id;
@@ -61,37 +68,63 @@ async function loadContent() {
       select.appendChild(option);
     });
 
+    // If there is a forcedId in the URL, set the selectedIndex accordingly
+    if (!isNaN(forcedId)) {
+      const forcedIndex = data.versions.findIndex(version => version.id === forcedId);
+      if (forcedIndex !== -1) {
+        selectedIndex = forcedIndex;
+      }
+    }
+
     select.selectedIndex = selectedIndex;
     displayContent(data.versions[selectedIndex].html);
 
+    // Function to update the URL based on the selected version id
+    function updateUrlParameter(id) {
+      const maxId = Math.max(...data.versions.map(version => version.id));
+      const url = new URL(window.location.href);
+      url.search = ""; // Clear the current search parameters
+      if (id !== maxId) {
+        url.search = `?${id}`;
+      }
+      window.history.replaceState({}, '', url.toString());
+    }
+
+    // Update the URL based on the initial selectedIndex
+    updateUrlParameter(data.versions[selectedIndex].id);
+
+    // Event listeners for version selector, left arrow, right arrow, and arrow keys
     select.addEventListener('change', () => {
       const selectedVersion = data.versions[select.selectedIndex];
       displayContent(selectedVersion.html);
       updateColor(selectedVersion.color);
       checkArrows(select.selectedIndex, data.versions.length, leftArrow, rightArrow);
+      updateUrlParameter(selectedVersion.id);
     });
 
     leftArrow.addEventListener('click', () => {
-    if (select.selectedIndex > 0) {
-      select.selectedIndex--;
-      const selectedVersion = data.versions[select.selectedIndex];
-      displayContent(selectedVersion.html);
-      updateColor(selectedVersion.color);
-      checkArrows(select.selectedIndex, data.versions.length, leftArrow, rightArrow);
-    }
-  });
+      if (select.selectedIndex > 0) {
+        select.selectedIndex--;
+        const selectedVersion = data.versions[select.selectedIndex];
+        displayContent(selectedVersion.html);
+        updateColor(selectedVersion.color);
+        checkArrows(select.selectedIndex, data.versions.length, leftArrow, rightArrow);
+        updateUrlParameter(selectedVersion.id);
+      }
+    });
 
-  rightArrow.addEventListener('click', () => {
-    if (select.selectedIndex < data.versions.length - 1) {
-      select.selectedIndex++;
-      const selectedVersion = data.versions[select.selectedIndex];
-      displayContent(selectedVersion.html);
-      updateColor(selectedVersion.color);
-      checkArrows(select.selectedIndex, data.versions.length, leftArrow, rightArrow);
-    }
-  });
+    rightArrow.addEventListener('click', () => {
+      if (select.selectedIndex < data.versions.length - 1) {
+        select.selectedIndex++;
+        const selectedVersion = data.versions[select.selectedIndex];
+        displayContent(selectedVersion.html);
+        updateColor(selectedVersion.color);
+        checkArrows(select.selectedIndex, data.versions.length, leftArrow, rightArrow);
+        updateUrlParameter(selectedVersion.id);
+      }
+    });
 
-  document.addEventListener('keydown', (event) => {
+    document.addEventListener('keydown', (event) => {
     if (event.key === 'ArrowRight') {
       if (select.selectedIndex > 0) {
         select.selectedIndex--;
@@ -99,6 +132,7 @@ async function loadContent() {
         displayContent(selectedVersion.html);
         updateColor(selectedVersion.color);
         checkArrows(select.selectedIndex, data.versions.length, leftArrow, rightArrow);
+        updateUrlParameter(selectedVersion.id);
       }
     } else if (event.key === 'ArrowLeft') {
       if (select.selectedIndex < data.versions.length - 1) {
@@ -107,6 +141,7 @@ async function loadContent() {
         displayContent(selectedVersion.html);
         updateColor(selectedVersion.color);
         checkArrows(select.selectedIndex, data.versions.length, leftArrow, rightArrow);
+        updateUrlParameter(selectedVersion.id);
       }
     }
   });
@@ -118,6 +153,7 @@ async function loadContent() {
     console.error('Error loading content:', error);
   }
 }
+
 
 function checkArrows(selectedIndex, numItems, leftArrow, rightArrow) {
   if (selectedIndex === 0) {
