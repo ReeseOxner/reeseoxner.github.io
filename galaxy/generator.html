@@ -64,7 +64,7 @@
       const encodedMarkdownText = encodeURIComponent(markdown);
       const selectedTheme = themeSelector.value;
       const title = encodeURIComponent(titleInput.value);
-      const generatedUrl = `localhost:8000?title=${title}&text=${encodedMarkdownText}&theme=${selectedTheme}`;
+      const generatedUrl = `https://reese.land/galaxy?title=${title}&text=${encodedMarkdownText}&theme=${selectedTheme}`;
       urlElement.textContent = generatedUrl;
     });
 
