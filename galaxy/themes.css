@@ -1,11 +1,16 @@
-/* themes.css */
+/* Base styles for all themes */
+body {
+  line-height: 1.6;
+  margin: 20px;
+}
+
 
 /* Base styles for all themes on mobile devices */
 @media (max-width: 767px) {
   body {
-    font-size: 18px;
-    line-height: 1.6;
-    margin: 20px;
+    font-size: 24px;
+    zoom: 2;
+
   }
 }
 

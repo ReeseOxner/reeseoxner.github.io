@@ -38,6 +38,20 @@
   const html = md.render(markdown);
   return html;
 }
+
+function loadMarkdownFromUrl() {
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const contentElement = document.getElementById("content");
+
+  if (urlParams.has("text")) {
+    const encodedMarkdownText = urlParams.get("text");
+    const markdownText = decodeURIComponent(encodedMarkdownText);
+    const html = markdownToHtml(markdownText);
+    contentElement.innerHTML = html;
+  }
+}
+
     </script>
 </body>
 </html>
