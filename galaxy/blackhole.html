@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse URL Generator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/turndown/7.1.1/turndown.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/12.3.0/markdown-it.min.js"></script>
+
+</head>
+<body>
+    <h1>Reverse URL Generator</h1>
+    <label for="inputUrl">Paste the URL:</label>
+    <input type="text" id="inputUrl" style="width: 100%;">
+    <button id="generateMarkdown">Generate Markdown</button>
+    <h2>Generated Markdown</h2>
+    <pre id="outputMarkdown"></pre>
+    <script>
+        const inputUrl = document.getElementById("inputUrl");
+        const generateMarkdownButton = document.getElementById("generateMarkdown");
+        const outputMarkdown = document.getElementById("outputMarkdown");
+
+        function urlToMarkdown(url) {
+            const urlObj = new URL(url);
+            const text = urlObj.searchParams.get("text");
+            const decodedText = decodeURIComponent(text);
+            return decodedText;
+        }
+
+        generateMarkdownButton.addEventListener("click", () => {
+            const url = inputUrl.value;
+            const markdown = urlToMarkdown(url);
+            outputMarkdown.textContent = markdown;
+        });
+        function markdownToHtml(markdown) {
+  const md = new markdownit();
+  const html = md.render(markdown);
+  return html;
+}
+    </script>
+</body>
+</html>

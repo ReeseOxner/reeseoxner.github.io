@@ -1,5 +1,14 @@
 /* themes.css */
 
+/* Base styles for all themes on mobile devices */
+@media (max-width: 767px) {
+  body {
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 20px;
+  }
+}
+
 /* Light Theme */
 body.theme-light {
   background-color: #ffffff;

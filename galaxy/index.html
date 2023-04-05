@@ -16,7 +16,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <script src="main.js"></script>
 </head>
 <body>
-  
+
   <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MC56JJZ"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -27,6 +27,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     const contentElement = document.getElementById("content");
     const md = new markdownit();
     handleUrlParams(contentElement, md);
+
+    var currentUrl = window.location.href;
+
   </script>
 </body>
 </html>
