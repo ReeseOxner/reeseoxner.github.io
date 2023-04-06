@@ -1,6 +1,12 @@
 {
   "versions": [
     {
+      "id": 4,
+      "name": "april 6, 2023",
+      "color": "#FF0F0F",
+      "html": "<p class='p1'>hi, its me, reese oxner</p><p class='p1'><strong>here's what i'm up to</p></strong><p class='p1'>what i'm watching <strong><a href='https://www.disneyplus.com/series/the-mandalorian/3jLIGMDYINqD?distributionPartner=google' target='_blank' style='text-decoration: none;'>→</a> mandolorian</strong></p><p class='p1'>what i'm listening to <strong><a href='https://open.spotify.com/track/3zyqphgXvgHe436IMKeey3?si=d03565e665d5488b'  target='_blank' style='text-decoration: none;'>→</a> paprika by jbrekkie</strong></p><p class='p1'>what i'm reading <strong><a href='#’' target='_blank' style='text-decoration: none;'>→</a> nothing rn :('</strong></p><p class='p1'>what i'm eating <strong><a href='images/hotnsour.jpeg' target='_blank' style='text-decoration: none;'>→</a> homemade hot n sour soup</strong></p><p class='p1'>the best meal i've had recently <strong><a href='https://www.reese.land/images/tacosalpastor.PNG' target='_blank' style='text-decoration: none;'>→</a> mi pastor es mi señor in san antonio, tx (still)</strong></p>"
+    },
+    {
   "id": 3,
   "name": "april 2, 2023",
   "color": "#FFEB0A",
