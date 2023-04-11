@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Subtitled Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <style>
+      body {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.letter {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 50px;
+  color: white;
+  margin: 10px;
+  transition: all 0.3s ease-in-out;
+  transform: translateY(0);
+}
+
+.letter:hover {
+  transform: translateY(-20px);
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="letter letter-s">S</div>
+      <div class="letter letter-u">U</div>
+      <div class="letter letter-b">B</div>
+      <div class="letter letter-t">T</div>
+      <div class="letter letter-i">I</div>
+      <div class="letter letter-t2">T</div>
+      <div class="letter letter-l">L</div>
+      <div class="letter letter-e">E</div>
+      <div class="letter letter-d">D</div>
+    </div>
+
+<script>const letters = document.querySelectorAll('.letter');
+
+let delay = 0;
+letters.forEach(letter => {
+  setTimeout(() => {
+    letter.style.transform = 'translateY(-20px)';
+    setTimeout(() => {
+      letter.style.transform = 'translateY(0)';
+    }, 300);
+  }, delay);
+  delay += 300;
+});
+
+</script>  </body>
+</html>
