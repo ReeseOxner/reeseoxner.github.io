@@ -1,0 +1,79 @@
+<meta name="robots" content="noindex">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡ayúdame!</title>
+    <style>
+    body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f3f4f6;
+}
+
+.login-container {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    width: 300px;
+    text-align: center;
+}
+
+.protected-content {
+    text-align: center;
+}
+
+#errorMsg {
+    color: red;
+}
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <input type="password" id="passwordInput" placeholder="Enter Pin">
+        <button onclick="checkPassword()">Enter</button>
+        <p id="errorMsg"></p>
+    </div>
+    <div class="protected-content" id="protectedContent" style="display:none;">
+        <br><h1>¡Ayúdame!</h1>
+
+        <h3> phone numbers </h3>
+        <p> mom - 817-937-7030 </p>
+        <p> dad - 817-939-2530 </p>
+        <p> ryan - 817-713-6417 </p>
+        <p> carlos - 270-438-6061 </p>
+        <p> brian - 817-469-316-0449 </p>
+        <p> narda - 817-655-3406 </p>
+
+        <h3> other info </h3>
+        <p> realtor key -> 7514 </p>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+<script>
+function checkPassword() {
+    const inputPassword = document.getElementById('passwordInput').value;
+    const errorMsg = document.getElementById('errorMsg');
+    const protectedContent = document.getElementById('protectedContent');
+    const loginContainer = document.querySelector('.login-container'); // Select the login container
+
+    const correctPassword = "6236";  // This should NEVER be hardcoded like this in a real application
+
+    if (inputPassword === correctPassword) {
+        protectedContent.style.display = 'block';
+        errorMsg.textContent = "";
+        loginContainer.style.display = 'none'; // Hide the login container
+    } else {
+        errorMsg.textContent = "Incorrect password!";
+    }
+}
+
+</script>
+</html>
