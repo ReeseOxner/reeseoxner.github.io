@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>adhd commandments</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+<style>
+  body {
+    font-family: 'Baloo 2', cursive;
+    background-color: #03693d; /* Dark green */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+  }
+  .tablets {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+  }
+  .tablet {
+    background-color: #03693d; /* Dark green */
+    border: 1px solid limegreen;
+    border-radius: 20px 20px 0 0; /* Rounded top corners */
+    padding: 20px;
+    margin: 5px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; /* Evenly space items vertically */
+  }
+  .commandment {
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.4;
+    padding: 0;
+    margin: 0;
+    list-style-position: inside; /* Align bullets inside */
+  }
+  ol {
+    padding: 0;
+    margin: 0;
+    height: 100%; /* Take full height of parent */
+    display: flex;
+    flex-direction: column;
+    line-spacing:10000px;
+    justify-content: space-around; /* Evenly space items vertically */
+  }
+h2 {line-height:0;}
+li {
+padding:10px;
+}
+</style>
+</head>
+<body>
+  <h2>the 10 adhd commandments</h2>
+  <div class="tablets">
+    <div class="tablet">
+      <ol class="commandment" start="1">
+        <li>Don't sit down until you're done.</li>
+        <li>Don't put it down, put it up!</li>
+        <li>Don't "eat the frog," start with an easy task.</li>
+        <li>Never trust your brain to remember something.</li>
+        <li>Always put commitments and events on a calendar.</li>
+      </ol>
+    </div>
+    <div class="tablet">
+      <ol class="commandment" start="6">
+        <li>Always check calendar before making commitments.</li>
+        <li>Don't put important things where you can't see them..</li>
+        <li>Thou shall not remove thy shoes.</li>
+        <li>Don't trust your own time perception.</li>
+        <li>Do a happy dance whenever you finish a task.</li>
+      </ol>
+    </div>
+  </div>
+</body>
+</html>
