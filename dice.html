@@ -58,20 +58,31 @@
   <button onclick="rollDice()">Roll Dice</button>
   <div id="result"></div>
 
-  <script>
+ <script>
     function rollDice() {
       var min = parseInt(document.getElementById('minRange').value);
       var max = parseInt(document.getElementById('maxRange').value);
+      var resultDiv = document.getElementById('result');
+
       if (min > max) {
-        document.getElementById('result').innerHTML = 'Min cannot be greater than Max.';
+        resultDiv.innerHTML = 'Min > Max';
         return;
       }
-      var diceRoll = Math.floor(Math.random() * (max - min + 1)) + min;
-      document.getElementById('result').innerHTML = diceRoll;
+
+      if (min === 1 && max === 2) {
+        // Turn into a coin
+        resultDiv.className = 'coin';
+        var coinFlip = Math.random() < 0.5 ? '👱🏼‍♂️' : '🍑';
+        resultDiv.innerHTML = coinFlip;
+      } else {
+        // Regular dice roll
+        resultDiv.className = '';
+        var diceRoll = Math.floor(Math.random() * (max - min + 1)) + min;
+        resultDiv.innerHTML = diceRoll;
+      }
     }
 
     window.onload = rollDice;
-
   </script>
 </body>
 </html>
