@@ -55,7 +55,9 @@ body, html {
     <h2 style="font-size: 80px; font-weight:800;">TV DINNER</h2>
     <p>A popup experience by Reese Oxner</p>
     <div class="form-space">
-        <!-- Embed your form here -->
+      <h2>Will you come?</h2><br/>
+      <button id="rsvpYes">Yes</button>
+      <button id="rsvpNo">No</button>
     </div>
 </div>
 
@@ -89,7 +91,61 @@ document.addEventListener('DOMContentLoaded', function() {
         }, index * 500); // Adjust timing as needed
     });
 });
+
+// Function to extract query parameters
+function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}
+
+// Function to submit RSVP
+function submitRSVP(response) {
+    const webhookUrl = 'https://hooks.zapier.com/hooks/catch/11751410/3ehpo49/';
+    const name = getQueryParam('name') || 'Guest'; // Default to 'Guest' if name is not provided
+    const data = {
+        name: name,
+        response: response
+    };
+
+    fetch(webhookUrl, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    })
+    .then(() => {
+        document.body.innerHTML = ''; // Clear the page
+        // Display the appropriate message
+        if(response === 'yes') {
+            document.body.innerHTML = '<p>Thank you for RSVPing. See you on March 1!</p>';
+        } else if(response === 'no') {
+            document.body.innerHTML = '<p>Sorry you can’t make it! Here’s to next time!</p>';
+        }
+        document.body.style.color = '#EB4E4E'; // Set text color
+        document.body.style.fontSize = '24px'; // Set font size
+        document.body.style.display = 'flex'; // Use flexbox for centering
+        document.body.style.justifyContent = 'center'; // Center horizontally
+        document.body.style.alignItems = 'center'; // Center vertically
+        document.body.style.height = '100vh'; // Fill the viewport height
+        document.body.style.fontFamily = 'Inter, Arial, sans-serif'; // Set font
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        alert('An error occurred. Please try again.');
+    });
+}
+
+// Event listeners for the buttons
+document.getElementById('rsvpYes').addEventListener('click', function() {
+    submitRSVP('yes');
+});
+
+document.getElementById('rsvpNo').addEventListener('click', function() {
+    submitRSVP('no');
+});
 </script>
+
 
 
 </body>
