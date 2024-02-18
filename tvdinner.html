@@ -1,100 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TV Dinner Invitation</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Lato:ital,wght@0,400;0,700;1,400&family=Schibsted+Grotesk:wght@800&display=swap" rel="stylesheet">
-<style>
-body, html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    color: #EB4E4E;
-    font-family: Inter, Arial, sans-serif;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TV Dinner Invitation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            color: #EB4E4E;
+            font-family: Inter, Arial, sans-serif;
+        }
 
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    text-align: center;
-}
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
 
-#invitation, .logo-space, h2, p, .form-space {
-    visibility: hidden; /* Initially hidden */
-}
+        #mealOptionSection {
+            display: none;
+        }
 
-.fade-in {
-    opacity: 0;
-    visibility: visible; /* Make visible when starting animation */
-    animation: fadeInAnimation ease 2s;
-    animation-fill-mode: forwards; /* Remain visible after animation */
-}
+        select, input[type="text"], button {
+            background-color: #000;
+            color: #EB4E4E;
+            border: 1px solid #EB4E4E;
+            padding: 10px;
+            margin: 5px;
+            font-family: Inter, Arial, sans-serif;
+            outline: none;
+        }
 
-@keyframes fadeInAnimation {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-}
-</style>
+        button.active {
+            background-color: #EB4E4E;
+            color: #000;
+        }
+
+        select option {
+            background-color: #000;
+            color: #EB4E4E;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        .fade-in {
+            animation: fadeInAnimation ease 2s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes fadeInAnimation {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
 </head>
 <body>
-
+<br><br><br><br>
 <div class="container">
     <h1 id="invitation"></h1>
     <div class="logo-space">
-        <!-- Place your 200x200 logo here -->
         <img src="https://i.imgur.com/PQFKuRX.png" alt="Logo" width="200">
     </div>
     <h2 style="font-size: 80px; font-weight:800;">TV DINNER</h2>
-    <p>A popup experience by Reese Oxner</p>
-    <h2>Will you come?</h2>
-    <div class="form-space">
-      <button id="rsvpYes">Yes</button>
-      <button id="rsvpNo">No</button>
+    <p>A popup dinner party by reese oxner.</p>
+    <p> March 16 @ 1800 Lavaca St. APT. 107.</p>
+    <h3>Will you come?</h3>
+    <button id="rsvpYes">Yes</button>
+    <button id="rsvpNo">No</button>
+
+    <div id="mealOptionSection">
+        <select id="mealOption">
+            <option value="beef">🥩 Beef</option>
+            <option value="chicken">🍗 Chicken</option>
+            <option value="noodles">🍜 Noodles</option>
+        </select>
     </div>
+    <input type="text" id="commentBox" placeholder="Leave a comment...">
+    <br>
+    <button id="submitBtn">Submit</button>
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const params = new URLSearchParams(window.location.search);
-    const name = params.get('name');
+document.addEventListener('DOMContentLoaded', () => {
+    const name = getQueryParam('name');
     const invitationText = document.getElementById('invitation');
-    invitationText.innerText = name ? `${name}, you’re invited to:` : `You’re invited to:`;
-    invitationText.style.visibility = 'visible';
-    invitationText.classList.add('fade-in');
+    invitationText.textContent = name ? `${name}, you’re invited to:` : `You’re invited to:`;
 
-    const elementsToFadeIn = ['.logo-space', 'h2', 'p', '.form-space'];
-    elementsToFadeIn.forEach((selector, index) => {
-        setTimeout(() => {
-            const element = document.querySelector(selector);
-            element.style.visibility = 'visible';
-            element.classList.add('fade-in');
-        }, index * 500);
-    });
+    document.getElementById('rsvpYes').addEventListener('click', () => toggleOptions(true));
+    document.getElementById('rsvpNo').addEventListener('click', () => toggleOptions(false));
+    document.getElementById('submitBtn').addEventListener('click', submitResponse);
+
+    fadeInElementsSequentially();
 });
 
-function submitRSVP(response) {
-    const webhookUrl = 'https://hooks.zapier.com/hooks/catch/11751410/3ehpo49/';
-    const name = getQueryParam('name') || 'Guest';
-    const data = { name: name, response: response };
+function fadeInElementsSequentially() {
+    const elements = document.querySelector('.container').children;
+    let delay = 0;
+    const delayIncrement = 0.5; // Adjust this value to control the delay between elements
 
+    Array.from(elements).forEach((element) => {
+        element.style.opacity = 0; // Ensure the element is initially hidden
+        setTimeout(() => {
+            element.classList.add('fade-in');
+        }, delay * 1000); // Convert delay to milliseconds
+        delay += delayIncrement;
+    });
+}
+
+function toggleOptions(isYes) {
+    const mealOptionSection = document.getElementById('mealOptionSection');
+    mealOptionSection.style.display = isYes ? 'block' : 'none';
+    document.getElementById('rsvpYes').classList.toggle('active', isYes);
+    document.getElementById('rsvpNo').classList.toggle('active', !isYes);
+}
+
+function submitResponse() {
+    const name = getQueryParam('name') || 'Guest';
+    const isYes = document.getElementById('rsvpYes').classList.contains('active');
+    const mealOption = isYes ? document.getElementById('mealOption').value : "No meal selected";
+    const comment = document.getElementById('commentBox').value;
+    const response = isYes ? 'yes' : 'no';
+    const data = { name, response, mealOption, comment };
+
+    const webhookUrl = 'https://hooks.zapier.com/hooks/catch/11751410/3ehpo49/';
     fetch(webhookUrl, {
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
     })
-    .then(() => displayMessage(response === 'yes' ? 'Thank you for RSVPing. See you on March 1!' : "Sorry you can’t make it! Here’s to next time!"))
+    .then(() => {
+        const message = response === 'yes' ? 'Thank you for RSVPing. See you on March 1!' : "Sorry you can’t make it! Here’s to next time!";
+        displayMessage(message);
+    })
     .catch((error) => {
         console.error('Error:', error);
-        alert('An error occurred. Please try again.');
     });
 }
 
@@ -104,20 +156,11 @@ function getQueryParam(param) {
 }
 
 function displayMessage(message) {
-    const container = document.querySelector('.container');
-    container.innerHTML = `<p>${message}</p>`;
-    container.style.display = 'flex';
-    container.style.flexDirection = 'column';
-    container.style.justifyContent = 'center';
-    container.style.alignItems = 'center';
-    container.style.height = '100vh';
-    container.style.color = '#EB4E4E';
-    container.style.fontSize = '24px';
-    container.style.fontFamily = 'Inter, Arial, sans-serif';
+    const messageElement = document.createElement('p');
+    messageElement.textContent = message;
+    document.body.innerHTML = '';
+    document.body.appendChild(messageElement);
 }
-
-document.getElementById('rsvpYes').addEventListener('click', function() { submitRSVP('yes'); });
-document.getElementById('rsvpNo').addEventListener('click', function() { submitRSVP('no'); });
 </script>
 
 </body>
