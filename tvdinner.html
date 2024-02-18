@@ -54,8 +54,8 @@ body, html {
     </div>
     <h2 style="font-size: 80px; font-weight:800;">TV DINNER</h2>
     <p>A popup experience by Reese Oxner</p>
+    <h2>Will you come?</h2>
     <div class="form-space">
-      <h2>Will you come?</h2><br/>
       <button id="rsvpYes">Yes</button>
       <button id="rsvpNo">No</button>
     </div>
@@ -63,93 +63,62 @@ body, html {
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Parse the 'name' from the URL query string
     const params = new URLSearchParams(window.location.search);
-    const name = params.get('name'); // Assuming the URL parameter is ?name=Reese
-
-    // Setup for invitation text
+    const name = params.get('name');
     const invitationText = document.getElementById('invitation');
-    if (name) {
-        invitationText.innerText = `${name}, you’re invited to:`; // Personalized text
-    } else {
-        invitationText.innerText = `You’re invited to:`; // Default text
-    }
-
-    // Ensure the invitation text is immediately visible for animation
+    invitationText.innerText = name ? `${name}, you’re invited to:` : `You’re invited to:`;
     invitationText.style.visibility = 'visible';
-    invitationText.classList.add('fade-in'); // Start fade-in animation
+    invitationText.classList.add('fade-in');
 
-    // Elements to fade in after the invitation text
     const elementsToFadeIn = ['.logo-space', 'h2', 'p', '.form-space'];
-
-    // Sequentially add fade-in class with delay, starting from 0 to include the invitation text
     elementsToFadeIn.forEach((selector, index) => {
         setTimeout(() => {
             const element = document.querySelector(selector);
-            element.style.visibility = 'visible'; // Ensure visibility before animation
-            element.classList.add('fade-in'); // Add fade-in class to start animation
-        }, index * 500); // Adjust timing as needed
+            element.style.visibility = 'visible';
+            element.classList.add('fade-in');
+        }, index * 500);
     });
 });
 
-// Function to extract query parameters
-function getQueryParam(param) {
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get(param);
-}
-
-// Function to submit RSVP
 function submitRSVP(response) {
     const webhookUrl = 'https://hooks.zapier.com/hooks/catch/11751410/3ehpo49/';
     const name = getQueryParam('name') || 'Guest';
-    const data = {
-        name: name,
-        response: response
-    };
+    const data = { name: name, response: response };
 
     fetch(webhookUrl, {
         method: 'POST',
-        mode: 'no-cors', // Add this line
-        headers: {
-            'Content-Type': 'application/json',
-        },
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
     })
-    .then(() => {
-        document.body.innerHTML = `<p>Thank you for your response.</p>`;
-        // Update the page based on the response
-        const message = response === 'yes' ? 'Thank you for RSVPing. See you on March 1!' : "Sorry you can’t make it! Here’s to next time!";
-        displayMessage(message);
-    })
+    .then(() => displayMessage(response === 'yes' ? 'Thank you for RSVPing. See you on March 1!' : "Sorry you can’t make it! Here’s to next time!"))
     .catch((error) => {
         console.error('Error:', error);
         alert('An error occurred. Please try again.');
     });
 }
 
-function displayMessage(message) {
-    document.body.innerHTML = ''; // Clear the page
-    document.body.innerHTML = `<p>${message}</p>`;
-    document.body.style.color = '#EB4E4E';
-    document.body.style.fontSize = '24px';
-    document.body.style.display = 'flex';
-    document.body.style.justifyContent = 'center';
-    document.body.style.alignItems = 'center';
-    document.body.style.height = '100vh';
-    document.body.style.fontFamily = 'Inter, Arial, sans-serif';
+function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
 }
 
-document.getElementById('rsvpYes').addEventListener('click', function() {
-    submitRSVP('yes');
-});
+function displayMessage(message) {
+    const container = document.querySelector('.container');
+    container.innerHTML = `<p>${message}</p>`;
+    container.style.display = 'flex';
+    container.style.flexDirection = 'column';
+    container.style.justifyContent = 'center';
+    container.style.alignItems = 'center';
+    container.style.height = '100vh';
+    container.style.color = '#EB4E4E';
+    container.style.fontSize = '24px';
+    container.style.fontFamily = 'Inter, Arial, sans-serif';
+}
 
-document.getElementById('rsvpNo').addEventListener('click', function() {
-    submitRSVP('no');
-});
-
+document.getElementById('rsvpYes').addEventListener('click', function() { submitRSVP('yes'); });
+document.getElementById('rsvpNo').addEventListener('click', function() { submitRSVP('no'); });
 </script>
-
-
 
 </body>
 </html>
