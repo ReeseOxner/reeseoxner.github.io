@@ -74,13 +74,13 @@
         <img src="https://i.imgur.com/PQFKuRX.png" alt="Logo" width="200">
     </div>
     <h2 style="font-size: 80px; font-weight:800;">TV DINNER</h2>
-    <p>A popup dinner party by reese oxner.</p>
+    <p>A small popup dinner party by reese oxner.</p>
     <p> March 16 @ 1800 Lavaca St. APT. 107.</p>
     <h3>Will you come?</h3>
     <button id="rsvpYes">Yes</button>
     <button id="rsvpNo">No</button>
 
-    <div id="mealOptionSection">
+    <div id="mealOptionSection"> entree: 
         <select id="mealOption">
             <option value="beef">🥩 Beef</option>
             <option value="chicken">🍗 Chicken</option>
@@ -142,7 +142,7 @@ function submitResponse() {
         body: JSON.stringify(data),
     })
     .then(() => {
-        const message = response === 'yes' ? 'Thank you for RSVPing. See you on March 1!' : "Sorry you can’t make it! Here’s to next time!";
+        const message = response === 'yes' ? 'Thank you for RSVPing. See you on March 16!' : "Sorry you can’t make it! Here’s to next time!";
         displayMessage(message);
     })
     .catch((error) => {
