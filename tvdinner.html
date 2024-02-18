@@ -64,28 +64,33 @@ document.addEventListener('DOMContentLoaded', function() {
     // Parse the 'name' from the URL query string
     const params = new URLSearchParams(window.location.search);
     const name = params.get('name'); // Assuming the URL parameter is ?name=Reese
-    let greeting = `You’re invited to:`; // Default text
-    if (name) {
-        greeting = `${name}, you’re invited to:`; // Personalized text
-    }
 
     // Setup for invitation text
     const invitationText = document.getElementById('invitation');
-    invitationText.innerText = greeting; // Set text
+    if (name) {
+        invitationText.innerText = `${name}, you’re invited to:`; // Personalized text
+    } else {
+        invitationText.innerText = `You’re invited to:`; // Default text
+    }
+
+    // Ensure the invitation text is immediately visible for animation
+    invitationText.style.visibility = 'visible';
     invitationText.classList.add('fade-in'); // Start fade-in animation
 
     // Elements to fade in after the invitation text
     const elementsToFadeIn = ['.logo-space', 'h2', 'p', '.form-space'];
 
-    // Sequentially add fade-in class with delay
+    // Sequentially add fade-in class with delay, starting from 0 to include the invitation text
     elementsToFadeIn.forEach((selector, index) => {
         setTimeout(() => {
             const element = document.querySelector(selector);
+            element.style.visibility = 'visible'; // Ensure visibility before animation
             element.classList.add('fade-in'); // Add fade-in class to start animation
-        }, (index + 1) * 500); // Increase delay for each element
+        }, index * 500); // Adjust timing as needed
     });
 });
 </script>
+
 
 </body>
 </html>
