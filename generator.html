@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>UTM Link Generator</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f7f7f7;
+      margin: 0;
+      padding: 2rem;
+    }
+    .container {
+      display: flex;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: auto;
+      flex-wrap: wrap;
+    }
+    .side {
+      flex: 1;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      padding: 1.5rem;
+      min-width: 0;
+    }
+    textarea {
+      width: 100%;
+      min-height: 350px;
+      font-size: 1rem;
+      padding: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      resize: vertical;
+      box-sizing: border-box;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .link-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+      background: #f9f9f9;
+      padding: 0.75rem;
+      border-radius: 8px;
+      word-break: break-all;
+    }
+    .link-row span {
+      flex: 1;
+      margin-right: 1rem;
+    }
+    .copy-btn {
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      border: none;
+      background: #007bff;
+      color: #fff;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .copy-btn:active {
+      background: #0056b3;
+    }
+    .invalid {
+      color: red;
+      background: #fff0f0;
+    }
+    .controls {
+      margin-bottom: 1rem;
+    }
+    fieldset {
+      border: 1px solid #ccc;
+      padding: 1rem;
+      margin-top: 1rem;
+      border-radius: 6px;
+    }
+    fieldset legend {
+      font-weight: bold;
+    }
+    .preset-form input {
+      margin-bottom: 0.5rem;
+      display: block;
+      width: 100%;
+      padding: 0.4rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .preset-form button {
+      background: #28a745;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .preset-form button:hover {
+      background: #218838;
+    }
+    #customPresetContainer {
+      display: none;
+    }
+    #toggleCustomForm {
+      margin-bottom: 1rem;
+      background: #6c757d;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    #toggleCustomForm:hover {
+      background: #5a6268;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="side">
+      <h2>Paste your links</h2>
+      <div class="controls">
+        <label for="utmPreset">UTM Preset: </label>
+        <select id="utmPreset"></select>
+      </div>
+
+      <!-- Toggle button -->
+      <button id="toggleCustomForm">+ Add Custom Preset</button>
+
+      <!-- Add new preset form (hidden by default) -->
+      <div id="customPresetContainer">
+        <fieldset class="preset-form">
+          <legend>Add New Preset</legend>
+          <input type="text" id="newPresetName" placeholder="Preset Name" />
+          <input type="text" id="utm1" placeholder="source (e.g. instagram)" />
+          <input type="text" id="utm2" placeholder="medium (e.g. broadcast_channel)" />
+          <input type="text" id="utm3" placeholder="campaign (e.g. slate_magazine)" />
+          <input type="text" id="utm4" placeholder="content (e.g. GoodJob)" />
+          <button id="addPresetBtn">Add Preset</button>
+        </fieldset>
+      </div>
+
+      <textarea id="inputLinks" placeholder="Paste one link per line"></textarea>
+    </div>
+    <div class="side">
+      <h2>Links with UTM codes</h2>
+      <ul id="outputLinks"></ul>
+    </div>
+  </div>
+  <script>
+    // Load presets from localStorage if available
+    const saved = localStorage.getItem("utm_presets");
+    const UTM_CONFIGS = saved ? JSON.parse(saved) : {
+      "Instagram Broadcast Channel (Slate)": [
+        { key: "utm_source", value: "instagram" },
+        { key: "utm_medium", value: "broadcast_channel" },
+        { key: "utm_campaign", value: "slate_magazine" },
+        { key: "utm_content", value: "GoodJob" }
+      ],
+      "LinkedIn Newsletter": [
+        { key: "utm_source", value: "linkedin" },
+        { key: "utm_medium", value: "linkedin_newsletter" },
+        { key: "utm_campaign", value: "linkedin_newsletter" },
+        { key: "utm_content", value: "GoodJob" }
+      ]
+    };
+
+    let currentUTM = null;
+    const presetSelect = document.getElementById('utmPreset');
+
+    function savePresets() {
+      localStorage.setItem("utm_presets", JSON.stringify(UTM_CONFIGS));
+    }
+
+    function refreshDropdown() {
+      presetSelect.innerHTML = '';
+      Object.keys(UTM_CONFIGS).forEach(name => {
+        const option = document.createElement('option');
+        option.value = name;
+        option.textContent = name;
+        presetSelect.appendChild(option);
+      });
+      presetSelect.value = Object.keys(UTM_CONFIGS)[0];
+      currentUTM = UTM_CONFIGS[presetSelect.value];
+    }
+    refreshDropdown();
+
+    presetSelect.addEventListener('change', () => {
+      currentUTM = UTM_CONFIGS[presetSelect.value];
+      renderLinks();
+    });
+
+    // Toggle custom form
+    document.getElementById('toggleCustomForm').addEventListener('click', () => {
+      const container = document.getElementById('customPresetContainer');
+      container.style.display = container.style.display === 'none' ? 'block' : 'none';
+    });
+
+    // Add new preset
+    document.getElementById('addPresetBtn').addEventListener('click', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('newPresetName').value.trim();
+      if (!name) return alert("Preset name is required!");
+
+      // Collect values in order → map to utm keys
+      const values = [
+        document.getElementById('utm1').value.trim(),
+        document.getElementById('utm2').value.trim(),
+        document.getElementById('utm3').value.trim(),
+        document.getElementById('utm4').value.trim()
+      ].filter(Boolean);
+
+      if (values.length === 0) return alert("Please enter at least one keyword");
+
+      const keys = ["utm_source","utm_medium","utm_campaign","utm_content"];
+      const params = values.map((val, i) => ({ key: keys[i], value: val }));
+
+      UTM_CONFIGS[name] = params;
+      savePresets();
+      refreshDropdown();
+      presetSelect.value = name;
+      currentUTM = params;
+      renderLinks();
+
+      // Reset form + hide
+      document.getElementById('newPresetName').value = '';
+      ['utm1','utm2','utm3','utm4'].forEach(id => document.getElementById(id).value = '');
+      document.getElementById('customPresetContainer').style.display = 'none';
+    });
+
+    function appendUTM(url) {
+      try {
+        const urlObj = new URL(url.trim());
+        currentUTM.forEach(param => {
+          urlObj.searchParams.set(param.key, param.value);
+        });
+        return urlObj.toString();
+      } catch (e) {
+        return ""; // Invalid URL
+      }
+    }
+
+    function renderLinks() {
+      const input = document.getElementById('inputLinks').value;
+      const lines = input.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+      const output = document.getElementById('outputLinks');
+      output.innerHTML = '';
+      lines.forEach((link) => {
+        const utmLink = appendUTM(link);
+        const li = document.createElement('li');
+        li.className = 'link-row';
+        if (!utmLink) {
+          li.classList.add('invalid');
+          li.textContent = 'Invalid URL: ' + link;
+        } else {
+          const span = document.createElement('span');
+          span.textContent = utmLink;
+          li.appendChild(span);
+
+          const btn = document.createElement('button');
+          btn.textContent = 'COPY';
+          btn.className = 'copy-btn';
+          btn.onclick = function() {
+            navigator.clipboard?.writeText(utmLink).then(() => {
+              btn.textContent = 'COPIED!';
+              setTimeout(() => { btn.textContent = 'COPY'; }, 1000);
+            });
+          };
+          li.appendChild(btn);
+        }
+        output.appendChild(li);
+      });
+    }
+
+    document.getElementById('inputLinks').addEventListener('input', renderLinks);
+    renderLinks();
+  </script>
+</body>
+</html>
